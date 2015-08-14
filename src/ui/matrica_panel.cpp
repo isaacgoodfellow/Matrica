@@ -9,13 +9,16 @@
 #include <ds/ui/tween/tweenline.h>
 #include "app/app_defs.h"
 #include "app/globals.h"
+#include "ui/matrica_button.h"
 
 #pragma warning(disable: 4355)
 
 namespace matrica {
+	
 	/**
 	* Matrica::MatricaPanel
 	*/
+
 	MatricaPanel::MatricaPanel(Globals& g)
 		: inherited(g.mEngine)
 		, mGlobals(g)
@@ -26,13 +29,48 @@ namespace matrica {
 
 		ci::Vec2f pos = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getSize("matrica:panel:position");
 		ci::Vec2f size = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getSize("matrica:panel:size");
-		float cornerRad = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getFloat("matrica:panel:corner_radius");
+		ci::Vec2f button_area = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getSize("matrica:panel:button:area");
+		float cornerRad = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getFloat("matrica:panel:corner:radius");
 
 		setPosition(pos.x,pos.y);
 		setSize(size);
 		setCornerRadius(cornerRad);
 		setTransparent(false);
 		enable(true);
+
+		int n_buttons = 8;
+
+		float button_gutter_x = size.x - button_area.x;
+		float button_gutter_y = size.y - button_area.y;
+
+		float xp = button_gutter_x;
+		float yp = button_gutter_y;
+
+
+		float max_width = button_area.x / n_buttons;
+		
+		float button_size = max_width;
+		if (max_width > 20){
+			button_size -= 20;
+		}
+
+		float button_pad = 20;
+
+		for (int x = 0; x < n_buttons; x++){
+			for (int y = 0; y < n_buttons; y++){
+				MatricaButton *p = new MatricaButton(mGlobals);
+				addChildPtr(p);
+				p->setSize(button_size, button_size);
+				p->setCornerRadius(button_size * 0.1);
+				p->setPosition(xp, yp);
+				p->layout();
+				yp += button_size;
+				yp += button_pad;
+			}
+			yp = button_gutter_y;
+			xp += button_size;
+			xp += button_pad;
+		}
 
 	}
 

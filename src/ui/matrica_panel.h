@@ -7,6 +7,7 @@
 
 namespace matrica {
 	class Globals;
+	class MatricaButton;
 
 	/**
 	* \class Matrica::MatricaPanel
@@ -22,6 +23,8 @@ namespace matrica {
 		typedef ds::ui::Sprite		inherited;
 		Globals&					mGlobals;
 		ds::EventClient				mEventClient;
+
+		std::vector< std::vector< MatricaButton* > > mButtons;
 
 	};
 

@@ -16,6 +16,15 @@
     <ClCompile Include="..\src\ui\matrica_panel.cpp">
       <Filter>src\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ui\matrica_button.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\matrica_controller.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\time_seconds.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\app\app_defs.h">
@@ -41,6 +50,15 @@
     </ClInclude>
     <ClInclude Include="..\src\ui\matrica_panel.h">
       <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ui\matrica_button.h">
+      <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ui\matrica_controller.h">
+      <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\time_seconds.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +90,9 @@
     </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{3eca459a-2fc2-4471-8dd4-6c188d47d4f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{99256369-f3d2-4618-a95d-714415143bd0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
