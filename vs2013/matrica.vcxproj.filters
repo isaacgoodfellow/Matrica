@@ -13,6 +13,9 @@
     <ClCompile Include="..\src\app\matrica_app.cpp">
       <Filter>src\app</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ui\matrica_panel.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\app\app_defs.h">
@@ -35,6 +38,9 @@
     </ClInclude>
     <ClInclude Include="..\src\app\matrica_app.h">
       <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ui\matrica_panel.h">
+      <Filter>src\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

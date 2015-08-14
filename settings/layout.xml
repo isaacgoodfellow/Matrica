@@ -1,6 +1,7 @@
 <settings>
 
-	<!-- Standard animation duration, in seconds. -->
-	<float name="animation:duration" value="0.2" />
+	<size name="matrica:panel:position" x="800" y ="800" />
+	<size name="matrica:panel:size" x="800" y ="800" />
+	<float name="matrica:panel:corner_radius" value="20" />
 	
 </settings>
