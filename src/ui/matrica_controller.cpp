@@ -15,7 +15,7 @@ namespace matrica{
 	, mMatrica(mc)
 	, mEventClient(g.mEngine.getNotifier(), [this](const ds::Event *m){ if (m) this->onAppEvent(*m); }){
 		mLastFire = 0.0f;
-		time_between = 0.4f;
+		time_between = 0.2f;
 
 		host = "127.0.0.1";
 		port = 9001;

@@ -138,6 +138,7 @@
     <ClCompile Include="..\src\ui\matrica_button.cpp" />
     <ClCompile Include="..\src\ui\matrica_controller.cpp" />
     <ClCompile Include="..\src\ui\matrica_panel.cpp" />
+    <ClCompile Include="..\src\ui\matrica_touch_grabber.cpp" />
     <ClCompile Include="..\src\util\time_seconds.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="..\src\ui\matrica_button.h" />
     <ClInclude Include="..\src\ui\matrica_controller.h" />
     <ClInclude Include="..\src\ui\matrica_panel.h" />
+    <ClInclude Include="..\src\ui\matrica_touch_grabber.h" />
     <ClInclude Include="..\src\util\time_seconds.h" />
   </ItemGroup>
   <ItemGroup>

@@ -10,6 +10,7 @@
 #include "app/app_defs.h"
 #include "app/globals.h"
 #include "ui/matrica_button.h"
+#include "ui/matrica_touch_grabber.h"
 
 #pragma warning(disable: 4355)
 
@@ -23,6 +24,12 @@ namespace matrica {
 		: inherited(g.mEngine)
 		, mGlobals(g)
 		, mEventClient(g.mEngine.getNotifier(), [this](const ds::Event *m){ if (m) this->onAppEvent(*m); }){
+
+
+		mTouchGrabber = new MatricaTouchGrabber(mGlobals, this);
+		addChildPtr(mTouchGrabber);
+		mTouchGrabber->enable(true);
+		mTouchGrabber->sendToFront();
 
 		setColor(ci::Color(1.0f,0.0f, 0.6f));
 //		setColor(ci::Color(0.0f, 1.0f, 0.69f));
@@ -74,6 +81,10 @@ namespace matrica {
 			xp += button_size;
 			xp += button_pad;
 		}
+
+		mTouchGrabber->sendToFront();
+		mTouchGrabber->setSize(button_area.x, button_area.y);
+		mTouchGrabber->setPosition(button_gutter_x, button_gutter_y);
 
 	}
 

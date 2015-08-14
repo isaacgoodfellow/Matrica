@@ -25,6 +25,9 @@
     <ClCompile Include="..\src\util\time_seconds.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ui\matrica_touch_grabber.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\app\app_defs.h">
@@ -60,6 +63,9 @@
     <ClInclude Include="..\src\util\time_seconds.h">
       <Filter>src\util</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\ui\matrica_touch_grabber.h">
+      <Filter>src\ui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="%DS_PLATFORM_086%\vs2013\FrameworkResources.rc">
@@ -76,9 +82,6 @@
     <Filter Include="src\model">
       <UniqueIdentifier>{319fa3ee-b4b6-4c09-82f9-ae7e64131109}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\query">
-      <UniqueIdentifier>{7406c89a-2752-4cbf-b0fc-2db2c8ec7223}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\ui">
       <UniqueIdentifier>{9b9f5de1-cbd5-4cb7-a580-46be59c2cf82}</UniqueIdentifier>
     </Filter>
@@ -93,6 +96,9 @@
     </Filter>
     <Filter Include="src\util">
       <UniqueIdentifier>{99256369-f3d2-4618-a95d-714415143bd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\query">
+      <UniqueIdentifier>{7406c89a-2752-4cbf-b0fc-2db2c8ec7223}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

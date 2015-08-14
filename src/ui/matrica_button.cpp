@@ -96,7 +96,6 @@ namespace matrica {
 		if (!mLed) return;
 
 		mState = in;
-		mLed->sendToFront();
 		mLed->setSize(getWidth() / 2.0f, getWidth() / 2.0f);
 
 		if (in){

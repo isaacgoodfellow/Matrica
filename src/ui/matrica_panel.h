@@ -14,7 +14,9 @@ namespace matrica {
 	* \brief One Panel of the matrica
 	*/
 	class MatricaPanel : public ds::ui::Sprite {
+	
 	public:
+
 		MatricaPanel(Globals&);
 
 	private:
@@ -22,6 +24,9 @@ namespace matrica {
 		int x_res;
 
 		friend class MatricaController;
+		friend class MatricaTouchGrabber;
+
+		MatricaTouchGrabber*		mTouchGrabber;
 
 		void						onAppEvent(const ds::Event&);
 
