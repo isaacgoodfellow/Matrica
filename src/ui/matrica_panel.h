@@ -34,7 +34,7 @@ namespace matrica {
 		Globals&					mGlobals;
 		ds::EventClient				mEventClient;
 
-		std::vector<MatricaButton*> mButtons;
+		std::vector<std::vector<MatricaButton*> > mButtons;
 
 	};
 

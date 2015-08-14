@@ -28,8 +28,8 @@ namespace matrica {
 
 		mTouchGrabber = new MatricaTouchGrabber(mGlobals, this);
 		addChildPtr(mTouchGrabber);
-		mTouchGrabber->enable(true);
-		mTouchGrabber->sendToFront();
+//		mTouchGrabber->enable(true);
+//		mTouchGrabber->sendToFront();
 
 		setColor(ci::Color(1.0f,0.0f, 0.6f));
 //		setColor(ci::Color(0.0f, 1.0f, 0.69f));
@@ -63,6 +63,11 @@ namespace matrica {
 
 		float button_pad = 20;
 
+		mButtons.resize(x_res);
+		for( auto it = mButtons.begin(); it != mButtons.end(); ++it){
+			(*it).resize(x_res);
+		}
+
 		for (int x = 0; x < x_res; x++){
 			for (int y = 0; y < x_res; y++){
 				MatricaButton *p = new MatricaButton(mGlobals);
@@ -75,16 +80,16 @@ namespace matrica {
 				p->layout();
 				yp += button_size;
 				yp += button_pad;
-				mButtons.push_back(p);
+				mButtons[x][y] = p;
 			}
 			yp = button_gutter_y;
 			xp += button_size;
 			xp += button_pad;
 		}
 
-		mTouchGrabber->sendToFront();
-		mTouchGrabber->setSize(button_area.x, button_area.y);
-		mTouchGrabber->setPosition(button_gutter_x, button_gutter_y);
+//		mTouchGrabber->sendToFront();
+//		mTouchGrabber->setSize(button_area.x, button_area.y);
+//		mTouchGrabber->setPosition(button_gutter_x, button_gutter_y);
 
 	}
 

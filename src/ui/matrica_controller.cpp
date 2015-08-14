@@ -26,12 +26,14 @@ namespace matrica{
 	void MatricaController::updateServer(const ds::UpdateParams& updateParams){
 		//Polling for new, yuck
 		if ((mTimer.elapsed() - mLastFire) > time_between){
-			for( auto it = mMatrica->mButtons.begin(); it != mMatrica->mButtons.end(); ++it){
-				if ( (*it)->x == it_pos && (*it)->mState){
+
+			auto xrow = mMatrica->mButtons[it_pos];
+			for( auto it = xrow.begin(); it != xrow.end(); ++it){	
+				if ( (*it)->mState ){
 					(*it)->fireLed();
 					ci::osc::Message message;
 					message.setAddress("/test");
-					message.addIntArg(mMatrica->x_res-(*it)->y);
+					message.addIntArg(mMatrica->x_res - (*it)->y);
 					sender.sendMessage(message);
 				}
 			}
