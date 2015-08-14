@@ -18,13 +18,18 @@ namespace matrica {
 		MatricaPanel(Globals&);
 
 	private:
+
+		int x_res;
+
+		friend class MatricaController;
+
 		void						onAppEvent(const ds::Event&);
 
 		typedef ds::ui::Sprite		inherited;
 		Globals&					mGlobals;
 		ds::EventClient				mEventClient;
 
-		std::vector< std::vector< MatricaButton* > > mButtons;
+		std::vector<MatricaButton*> mButtons;
 
 	};
 

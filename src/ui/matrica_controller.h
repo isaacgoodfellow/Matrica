@@ -4,6 +4,10 @@
 
 #include "matrica_panel.h"
 #include "util/time_seconds.h"
+#include <ds/app/event_client.h>
+#include <ds/ui/sprite/image.h>
+
+#include "OscSender.h"
 
 namespace matrica {
 
@@ -23,6 +27,8 @@ namespace matrica {
 
 	private:
 
+		int it_pos = 0;
+
 		void onAppEvent(const ds::Event&);
 
 		//Making this a friend to avoid a lot of function call overhead
@@ -34,6 +40,13 @@ namespace matrica {
 		const MatricaPanel* mMatrica;
 
 		ds::time::Seconds		mTimer;
+
+		ci::osc::Sender sender;
+		std::string		host;
+		int 			port;
+
+		float mLastFire;
+		float time_between;
 
 	};
 

@@ -12,6 +12,8 @@
 #include "ds/ui/sprite/sprite.h"
 #include "ds/ui/sprite/util/blend.h"
 
+#include "cinder/Rand.h"
+
 #pragma warning(disable: 4355)
 
 namespace matrica {
@@ -37,6 +39,7 @@ namespace matrica {
 		addChildPtr(mLed);
 		mLed->setPosition(0.0f, 0.0f);
 		mLed->setColor(0.0f, 1.0f, 0.69f);
+		mLed->setCornerRadius(mLed->getWidth() / 2.0f);
 
 		mLed->setTransparent(false);
 		mLed->enable(false);
@@ -78,16 +81,13 @@ namespace matrica {
 
 	void MatricaButton::fireLed(){
 
+		float dur = ci::Rand::randFloat(0.3f, 0.4f);
 		mLed->setOpacity(1.0f);
-		mGlobals.mEngine.getTweenline().apply(*mLed, ANIM_OPACITY(), 0.0f, 0.3f);
+		mGlobals.mEngine.getTweenline().apply(*mLed, ANIM_OPACITY(), 0.0f, dur);
 		
-		float scale_amnt = 3.0f;
+		float scale_amnt = ci::Rand::randFloat(2.0f, 3.0f);
 		mLed->setScale(scale_amnt);
-		mGlobals.mEngine.getTweenline().apply(*mLed, ANIM_SCALE(), ci::Vec3f(0.0f,0.0f,0.0f), 0.3f);
-
-		float rot_amnt = 180.0f;//Rand::randBool() ? -180.f : 180.f;
-		mLed->setRotation(0.0f);
-		mGlobals.mEngine.getTweenline().apply(*mLed, ANIM_ROTATION(), ci::Vec3f( 0.0f , 0.0f , rot_amnt ), 0.3f);
+		mGlobals.mEngine.getTweenline().apply(*mLed, ANIM_SCALE(), ci::Vec3f(0.f,0.f,0.f), dur);
 
 	}
 
@@ -100,10 +100,9 @@ namespace matrica {
 		mLed->setSize(getWidth() / 2.0f, getWidth() / 2.0f);
 
 		if (in){
-			setColor(ci::Color(.8f, .8f, .8f));
-			fireLed();
+			setColor(ci::Color(1.0f, 0.1f, 0.7f));
 		}	else {
-			setColor(ci::Color(0.1f, 0.1f, 0.1f));
+			setColor(ci::Color(.9f, 0.0f, 0.5f));
 		}
 	}
 

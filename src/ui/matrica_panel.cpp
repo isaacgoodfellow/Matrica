@@ -38,7 +38,7 @@ namespace matrica {
 		setTransparent(false);
 		enable(true);
 
-		int n_buttons = 8;
+		x_res = 8;
 
 		float button_gutter_x = size.x - button_area.x;
 		float button_gutter_y = size.y - button_area.y;
@@ -47,7 +47,7 @@ namespace matrica {
 		float yp = button_gutter_y;
 
 
-		float max_width = button_area.x / n_buttons;
+		float max_width = button_area.x / x_res;
 		
 		float button_size = max_width;
 		if (max_width > 20){
@@ -56,9 +56,11 @@ namespace matrica {
 
 		float button_pad = 20;
 
-		for (int x = 0; x < n_buttons; x++){
-			for (int y = 0; y < n_buttons; y++){
+		for (int x = 0; x < x_res; x++){
+			for (int y = 0; y < x_res; y++){
 				MatricaButton *p = new MatricaButton(mGlobals);
+				p->x = x;
+				p->y = y;
 				addChildPtr(p);
 				p->setSize(button_size, button_size);
 				p->setCornerRadius(button_size * 0.1);
@@ -66,6 +68,7 @@ namespace matrica {
 				p->layout();
 				yp += button_size;
 				yp += button_pad;
+				mButtons.push_back(p);
 			}
 			yp = button_gutter_y;
 			xp += button_size;

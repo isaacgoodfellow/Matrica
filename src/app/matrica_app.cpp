@@ -1,6 +1,7 @@
 #include "matrica_app.h"
 
 #include "ui/matrica_panel.h"
+#include "ui/matrica_controller.h"
 
 #include <Poco/String.h>
 #include <ds/app/environment.h>
@@ -56,7 +57,9 @@ void Matrica::setupServer(){
 	rootSprite.setColor(ci::Color(0.1f, 0.1f, 0.1f));
 	
 	// add sprites
-	rootSprite.addChildPtr(new MatricaPanel(mGlobals));
+	MatricaPanel *p = new MatricaPanel(mGlobals);
+	rootSprite.addChildPtr(new MatricaController(mGlobals,p));
+	rootSprite.addChildPtr(p);
 
 }
 

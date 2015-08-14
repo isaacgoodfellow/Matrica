@@ -18,7 +18,10 @@ namespace matrica {
 		
 		MatricaButton(Globals&);
 		void						layout();
+		void						fireLed();
 
+		int							x, y;
+		bool						mState;
 
 	private:
 		
@@ -26,7 +29,6 @@ namespace matrica {
 		void						handleTouch(const ds::ui::TouchInfo& touchInfo);
 		void						setDown(bool in);
 		bool						touchInside(const ci::Vec3f& point);
-		void						fireLed();
 
 		void						changeState(bool in);
 
@@ -36,7 +38,6 @@ namespace matrica {
 
 		Sprite*						mLed;
 
-		bool						mState;
 
 
 	};
