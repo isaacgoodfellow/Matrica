@@ -28,6 +28,9 @@
     <ClCompile Include="..\src\ui\matrica_touch_grabber.cpp">
       <Filter>src\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ui\background\background_view.cpp">
+      <Filter>src\ui\background</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\app\app_defs.h">
@@ -66,6 +69,9 @@
     <ClInclude Include="..\src\ui\matrica_touch_grabber.h">
       <Filter>src\ui</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\ui\background\background_view.h">
+      <Filter>src\ui\background</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="%DS_PLATFORM_086%\vs2013\FrameworkResources.rc">
@@ -99,6 +105,9 @@
     </Filter>
     <Filter Include="src\query">
       <UniqueIdentifier>{7406c89a-2752-4cbf-b0fc-2db2c8ec7223}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ui\background">
+      <UniqueIdentifier>{fbbb4d22-529e-446a-9a25-59408b3326c5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

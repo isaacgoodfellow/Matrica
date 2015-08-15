@@ -75,7 +75,7 @@ namespace matrica {
 				p->y = y;
 				addChildPtr(p);
 				p->setSize(button_size, button_size);
-				p->setCornerRadius(button_size * 0.1);
+				p->setCornerRadius(button_size * 0.1f);
 				p->setPosition(xp, yp);
 				p->layout();
 				yp += button_size;
