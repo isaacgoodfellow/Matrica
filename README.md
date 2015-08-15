@@ -6,3 +6,17 @@
 * You'll need [cinder 0.8.6 vc2013](http://libcinder.org/download/)
 * Also follow the directions for [setting up gstreamer](https://github.com/Downstream/ds_cinder/tree/086-develop/projects/video/gstreamer-1.0) when you setup ds_cinder
 * Install [Pure Data (Extended)](https://puredata.info/downloads/pd-extended) for the audio part of this
+
+## Big Wall Resolution
+
+###### Each Screen
+1366 x 768
+
+###### Bezel
+8 pixels
+
+###### Each Computer
+4114 x 3096
+
+###### Total Resolution
+8236 x 3096
