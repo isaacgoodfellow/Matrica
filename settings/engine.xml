@@ -25,8 +25,8 @@
 	<!-- WINDOW SETTINGS --->
 	<!---------------------->
 	<!-- how big the world size is, in pixels -->
-	<size name="world_dimensions" x="1920" y="1080" />
-	<rect name="src_rect" l="0" r="1920" t="0" b="1080" />
+	<size name="world_dimensions" x="4114" y="3096" />
+	<rect name="src_rect" l="0" r="4114" t="0" b="3096" />
 	<rect name="dst_rect" l="0" r="1920" t="0" b="1080" />
 	<!-- title of the window -->
 	<text name="screen:title" value="Matrica" />	

@@ -40,4 +40,4 @@ namespace matrica {
 
 	}
 
-} // namespace jci
+} // namespace matrica
