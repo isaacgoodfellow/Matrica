@@ -10,6 +10,11 @@ public:
 	IdleStartedEvent(){};
 };
 
+class SawMessage : public ds::RegisteredEvent < SawMessage > {
+public:
+	SawMessage(){ };
+};
+
 class IdleEndedEvent : public ds::RegisteredEvent < IdleEndedEvent > {
 public:
 	IdleEndedEvent(){};

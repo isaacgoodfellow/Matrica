@@ -1,6 +1,7 @@
 #include "matrica_controller.h"
 #include "app/globals.h"
 #include "matrica_button.h"
+#include "events/app_events.h"
 
 #include "cinder/Rand.h"
 
@@ -35,6 +36,7 @@ namespace matrica{
 					message.setAddress("/test");
 					message.addIntArg(mMatrica->x_res - (*it)->y);
 					sender.sendMessage(message);
+					mGlobals.mEngine.getNotifier().notify(SawMessage());
 				}
 			}
 
@@ -46,6 +48,7 @@ namespace matrica{
 	}
 
 	void MatricaController::onAppEvent(const ds::Event& in_e) {
+		std::cout << "EVENT" << std::endl;
 	}
 
 	void onAppEvent(const ds::Event&){

@@ -22,13 +22,14 @@ namespace matrica {
 		, mShadeImg(ds::ui::Sprite::makeAlloc<ds::ui::Image>([&g]()->ds::ui::Image*{return new ds::ui::Image(g.mEngine, ds::ui::Image::IMG_CACHE_F); }, this))
 	{
 
-		setTransparent(false);
+		hide();
+		setTransparent(true);
 		setSize(x, y);
-		addChild(mShadeImg);
-		mShadeImg.setImageFile(ds::Environment::getAppFolder("data/images/", "hi_res_forest1.jpg"));
-		mShadeImg.setTransparent(false);
-		mShadeImg.setOpacity(1.0f);
-		mShadeImg.show();
+//		addChild(mShadeImg);
+// 		mShadeImg.setImageFile(ds::Environment::getAppFolder("data/images/", "hi_res_forest1.jpg"));
+// 		mShadeImg.setTransparent(false);
+// 		mShadeImg.setOpacity(1.0f);
+// 		mShadeImg.show();
 
 		//Scale up the image to fit
 		float w = mShadeImg.getWidth();
@@ -36,7 +37,7 @@ namespace matrica {
 		float dw = getWidth() / mShadeImg.getWidth();
 		float dh = getHeight() / mShadeImg.getHeight();
 		float s = (dw > dh) ? dw : dh;
-		mShadeImg.setScale(s);
+//		mShadeImg.setScale(s);
 
 	}
 

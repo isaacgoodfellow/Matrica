@@ -141,6 +141,7 @@
     <ClCompile Include="..\src\ui\matrica_panel.cpp" />
     <ClCompile Include="..\src\ui\matrica_touch_grabber.cpp" />
     <ClCompile Include="..\src\util\time_seconds.cpp" />
+    <ClCompile Include="..\src\visuals\visual_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="..\src\ui\matrica_panel.h" />
     <ClInclude Include="..\src\ui\matrica_touch_grabber.h" />
     <ClInclude Include="..\src\util\time_seconds.h" />
+    <ClInclude Include="..\src\visuals\visual_test.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="%DS_PLATFORM_086%\vs2013\FrameworkResources.rc" />
