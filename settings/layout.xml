@@ -1,8 +1,9 @@
 <settings>
 
 	<size name="matrica:panel:position" x="100" y ="100" />
-	<size name="matrica:panel:size" x="800" y ="800" />
-	<size name="matrica:panel:button:area" x="750" y ="750" />	
+	<size name="matrica:panel:button:size" x="60" y ="60" />
+	<size name="matrica:panel:size" x="1051" y ="1051" />
 	<float name="matrica:panel:corner:radius" value="20" />
+	<float name="matrica:panel:button:gutter" value="20" />
 	
 </settings>

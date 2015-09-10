@@ -31,12 +31,14 @@ namespace matrica {
 //		mTouchGrabber->enable(true);
 //		mTouchGrabber->sendToFront();
 
-		setColor(ci::Color(1.0f,0.0f, 0.6f));
+		setColor(ci::Color(0.8f,0.8f,0.8f));
+//		setColor(ci::Color(1.0f,0.0f, 0.6f));
 //		setColor(ci::Color(0.0f, 1.0f, 0.69f));
 
 		ci::Vec2f pos = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getSize("matrica:panel:position");
 		ci::Vec2f size = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getSize("matrica:panel:size");
-		ci::Vec2f button_area = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getSize("matrica:panel:button:area");
+		ci::Vec2f button_size = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getSize("matrica:panel:button:size");
+		float button_gutter = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getFloat("matrica:panel:button:gutter");
 		float cornerRad = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getFloat("matrica:panel:corner:radius");
 
 		setPosition(pos.x,pos.y);
@@ -45,23 +47,12 @@ namespace matrica {
 		setTransparent(false);
 		enable(true);
 
-		x_res = 8;
+		x_res = 16;
 
-		float button_gutter_x = size.x - button_area.x;
-		float button_gutter_y = size.y - button_area.y;
+		float xp = button_gutter;
+		float yp = button_gutter;
 
-		float xp = button_gutter_x;
-		float yp = button_gutter_y;
-
-
-		float max_width = button_area.x / x_res;
-		
-		float button_size = max_width;
-		if (max_width > 20){
-			button_size -= 20;
-		}
-
-		float button_pad = 20;
+		float button_pad = 3;
 
 		mButtons.resize(x_res);
 		for( auto it = mButtons.begin(); it != mButtons.end(); ++it){
@@ -74,16 +65,16 @@ namespace matrica {
 				p->x = x;
 				p->y = y;
 				addChildPtr(p);
-				p->setSize(button_size, button_size);
-				p->setCornerRadius(button_size * 0.1f);
+				p->setSize(button_size.x, button_size.y);
+				p->setCornerRadius(button_size.x * 0.1f);
 				p->setPosition(xp, yp);
 				p->layout();
-				yp += button_size;
+				yp += button_size.y;
 				yp += button_pad;
 				mButtons[x][y] = p;
 			}
-			yp = button_gutter_y;
-			xp += button_size;
+			yp = button_gutter;
+			xp += button_size.x;
 			xp += button_pad;
 		}
 
