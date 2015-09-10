@@ -1,5 +1,13 @@
 # Matrica
-(WIP) Touchscreen sequencer written with ds_cinder designed for the "Big Wall" at downstream in Portland Oregon.
+Matrica is a musical instrument designed for large scale touchscreens with play as its central tenant. Purpose Built for the _Big Wall_ at downstream in portland oregon. Heavily influenced by the Monome and Patatap.
+
+
+
+![Early Stages](https://github.com/isaacgoodfellow/Matrica/blob/master/docs/matrica.PNG)
+
+##DS_CINDER
+
+DS_CINDER is the open-source framework used at Downstream in Portland Oregon, based upon the wonderful [Cinder](http://libcinder.org/) project. DS_CINDER is a framework for creating distributed interactive graphics applications.
 
 ## Compiling
 * Grab ds_cinder [086-develop branch]( https://github.com/Downstream/ds_cinder)
