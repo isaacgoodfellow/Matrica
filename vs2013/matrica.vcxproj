@@ -141,6 +141,11 @@
     <ClCompile Include="..\src\ui\matrica_panel.cpp" />
     <ClCompile Include="..\src\ui\matrica_touch_grabber.cpp" />
     <ClCompile Include="..\src\util\time_seconds.cpp" />
+    <ClCompile Include="..\src\visuals\primitive_pool.cpp" />
+    <ClCompile Include="..\src\visuals\triggerable\triggerable_visual.cpp" />
+    <ClCompile Include="..\src\visuals\triggerable\trig_pop.cpp" />
+    <ClCompile Include="..\src\visuals\triggerable\trig_spinning_rect.cpp" />
+    <ClCompile Include="..\src\visuals\visual_controller.cpp" />
     <ClCompile Include="..\src\visuals\visual_test.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +162,11 @@
     <ClInclude Include="..\src\ui\matrica_panel.h" />
     <ClInclude Include="..\src\ui\matrica_touch_grabber.h" />
     <ClInclude Include="..\src\util\time_seconds.h" />
+    <ClInclude Include="..\src\visuals\primitive_pool.h" />
+    <ClInclude Include="..\src\visuals\triggerable\trig_pop.h" />
+    <ClInclude Include="..\src\visuals\triggerable\trig_spinning_rect.h" />
+    <ClInclude Include="..\src\visuals\triggerable_visual.h" />
+    <ClInclude Include="..\src\visuals\visual_controller.h" />
     <ClInclude Include="..\src\visuals\visual_test.h" />
   </ItemGroup>
   <ItemGroup>

@@ -34,6 +34,21 @@
     <ClCompile Include="..\src\visuals\visual_test.cpp">
       <Filter>src\visuals</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\visuals\visual_controller.cpp">
+      <Filter>src\visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\visuals\primitive_pool.cpp">
+      <Filter>src\visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\visuals\triggerable\trig_spinning_rect.cpp">
+      <Filter>src\visuals\triggerable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\visuals\triggerable\triggerable_visual.cpp">
+      <Filter>src\visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\visuals\triggerable\trig_pop.cpp">
+      <Filter>src\visuals\triggerable</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\app\app_defs.h">
@@ -78,6 +93,21 @@
     <ClInclude Include="..\src\visuals\visual_test.h">
       <Filter>src\visuals</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\visuals\visual_controller.h">
+      <Filter>src\visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\visuals\triggerable_visual.h">
+      <Filter>src\visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\visuals\primitive_pool.h">
+      <Filter>src\visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\visuals\triggerable\trig_spinning_rect.h">
+      <Filter>src\visuals\triggerable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\visuals\triggerable\trig_pop.h">
+      <Filter>src\visuals\triggerable</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="%DS_PLATFORM_086%\vs2013\FrameworkResources.rc">
@@ -117,6 +147,9 @@
     </Filter>
     <Filter Include="src\visuals">
       <UniqueIdentifier>{3fcc1a67-78fb-4acf-82db-9cf8e9277fcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\visuals\triggerable">
+      <UniqueIdentifier>{558dc880-9e13-4c6b-87e7-cee4c3f74afe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

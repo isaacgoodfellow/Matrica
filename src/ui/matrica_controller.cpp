@@ -48,7 +48,6 @@ namespace matrica{
 	}
 
 	void MatricaController::onAppEvent(const ds::Event& in_e) {
-		std::cout << "EVENT" << std::endl;
 	}
 
 	void onAppEvent(const ds::Event&){

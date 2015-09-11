@@ -25,19 +25,21 @@ namespace matrica {
 		hide();
 		setTransparent(true);
 		setSize(x, y);
-//		addChild(mShadeImg);
-// 		mShadeImg.setImageFile(ds::Environment::getAppFolder("data/images/", "hi_res_forest1.jpg"));
-// 		mShadeImg.setTransparent(false);
-// 		mShadeImg.setOpacity(1.0f);
-// 		mShadeImg.show();
+		addChild(mShadeImg);
+ 		mShadeImg.setImageFile(ds::Environment::getAppFolder("data/images/", "hi_res_forest.jpg"));
+ 		mShadeImg.setTransparent(false);
+ 		mShadeImg.setOpacity(1.0f);
+		mShadeImg.setCenter(0.0f, 1.0f);
+		mShadeImg.setPosition(0.0f, mGlobals.mEngine.getWorldHeight());
+ 		mShadeImg.show();
 
 		//Scale up the image to fit
 		float w = mShadeImg.getWidth();
 		float h = mShadeImg.getHeight();
-		float dw = getWidth() / mShadeImg.getWidth();
-		float dh = getHeight() / mShadeImg.getHeight();
+		float dw = mGlobals.mEngine.getWorldWidth() / mShadeImg.getWidth();
+		float dh = mGlobals.mEngine.getWorldWidth() / mShadeImg.getHeight();
 		float s = (dw > dh) ? dw : dh;
-//		mShadeImg.setScale(s);
+		mShadeImg.setScale(s);
 
 	}
 

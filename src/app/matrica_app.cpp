@@ -5,6 +5,8 @@
 #include "ui/matrica_controller.h"
 #include "visuals/visual_test.h"
 
+#include "visuals/visual_controller.h"
+
 #include <Poco/String.h>
 #include <ds/app/environment.h>
 #include <ds/debug/logger.h>
@@ -36,7 +38,6 @@ Matrica::Matrica()
 	, mIdling( false )
 {
 
-
 	/*fonts in use */
 	mEngine.editFonts().install(ds::Environment::getAppFile("data/fonts/NotoSans-Bold.ttf"), "noto-bold");
 
@@ -58,11 +59,11 @@ void Matrica::setupServer(){
 	rootSprite.setTransparent(false);
 	rootSprite.setColor(ci::Color(0.1f, 0.1f, 0.1f));
 	
-//	BackgroundView* bg = new BackgroundView(mGlobals,  2000, 2000 );
-//	rootSprite.addChildPtr(bg);
-//	bg->setTransparent(false);
-//	bg->show();
-//	bg->setPosition(0.0f, 0.0f);
+	BackgroundView* bg = new BackgroundView(mGlobals,  2000, 2000 );
+	rootSprite.addChildPtr(bg);
+	bg->setTransparent(false);
+	bg->show();
+	bg->setPosition(0.0f, 0.0f);
 
 	// add sprites
 	MatricaPanel *p = new MatricaPanel(mGlobals);
@@ -70,8 +71,12 @@ void Matrica::setupServer(){
 	rootSprite.addChildPtr(p);
 
 
-	VisualTest *vt = new VisualTest(mGlobals);
-	rootSprite.addChildPtr(vt);
+// 	VisualTest *vt = new VisualTest(mGlobals);
+// 	rootSprite.addChildPtr(vt);
+
+	VisualController *vc = new VisualController(mGlobals);
+	rootSprite.addChildPtr(vc);
+	vc->sendToFront();
 
 
 

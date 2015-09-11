@@ -1,6 +1,6 @@
 #pragma once
-#ifndef UI_MATRICA_BUTTON_H_
-#define UI_MATRICA_BUTTON_H_
+#ifndef UI_VISUAL_TEST
+#define UI_VISUAL_TEST
 
 #include <ds/app/event_client.h>
 #include <ds/ui/sprite/image.h>

@@ -10,6 +10,8 @@
 #include "ds/ui/sprite/sprite.h"
 #include "ds/ui/sprite/util/blend.h"
 
+#include <ds/ui/sprite/image.h>
+
 #include "cinder/Rand.h"
 
 #pragma warning(disable: 4355)
@@ -33,7 +35,10 @@ namespace matrica {
 
 
 		for (int i = 0; i < mPoolSize; ++i){
+
+//			mBars.push_back(new ds::ui::Image(mGlobals.mEngine, "C:\\Projects\\Matrica\\data\\images\\trail.png"));
 			mBars.push_back(new ds::ui::Sprite(mGlobals.mEngine));
+		
 			addChildPtr(mBars.back());
 		}
 
