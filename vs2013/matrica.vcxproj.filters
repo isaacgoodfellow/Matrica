@@ -31,9 +31,6 @@
     <ClCompile Include="..\src\ui\background\background_view.cpp">
       <Filter>src\ui\background</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\visuals\visual_test.cpp">
-      <Filter>src\visuals</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\visuals\visual_controller.cpp">
       <Filter>src\visuals</Filter>
     </ClCompile>
@@ -48,6 +45,21 @@
     </ClCompile>
     <ClCompile Include="..\src\visuals\triggerable\trig_pop.cpp">
       <Filter>src\visuals\triggerable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\model\color_scheme.cpp">
+      <Filter>src\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\visuals\triggerable\trig_box_slide.cpp">
+      <Filter>src\visuals\triggerable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\metronome.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\events\time_events.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\events\instrument_events.cpp">
+      <Filter>src\events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,9 +102,6 @@
     <ClInclude Include="..\src\ui\background\background_view.h">
       <Filter>src\ui\background</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\visuals\visual_test.h">
-      <Filter>src\visuals</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\visuals\visual_controller.h">
       <Filter>src\visuals</Filter>
     </ClInclude>
@@ -107,6 +116,21 @@
     </ClInclude>
     <ClInclude Include="..\src\visuals\triggerable\trig_pop.h">
       <Filter>src\visuals\triggerable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\model\color_scheme.h">
+      <Filter>src\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\visuals\triggerable\trig_box_slide.h">
+      <Filter>src\visuals\triggerable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\metronome.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\events\time_events.h">
+      <Filter>src\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\events\instrument_events.h">
+      <Filter>src\events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

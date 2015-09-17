@@ -21,7 +21,7 @@ namespace matrica {
 
 	private:
 
-		int x_res;
+		int x_res,y_res;
 
 		friend class MatricaController;
 		friend class MatricaTouchGrabber;

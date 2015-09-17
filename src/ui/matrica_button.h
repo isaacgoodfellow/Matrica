@@ -19,6 +19,7 @@ namespace matrica {
 		MatricaButton(Globals&);
 		void						layout();
 		void						fireLed();
+		void						showStep();
 
 		int							x, y;
 		bool						mState;
@@ -37,6 +38,7 @@ namespace matrica {
 		ds::EventClient				mEventClient;
 
 		Sprite*						mLed;
+		Sprite*						mTempoVisual;
 
 
 

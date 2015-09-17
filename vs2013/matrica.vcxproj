@@ -134,19 +134,23 @@
     <ClCompile Include="..\src\app\app_defs.cpp" />
     <ClCompile Include="..\src\app\globals.cpp" />
     <ClCompile Include="..\src\app\matrica_app.cpp" />
+    <ClCompile Include="..\src\events\instrument_events.cpp" />
+    <ClCompile Include="..\src\events\time_events.cpp" />
+    <ClCompile Include="..\src\model\color_scheme.cpp" />
     <ClCompile Include="..\src\query\query_handler.cpp" />
     <ClCompile Include="..\src\ui\background\background_view.cpp" />
     <ClCompile Include="..\src\ui\matrica_button.cpp" />
     <ClCompile Include="..\src\ui\matrica_controller.cpp" />
     <ClCompile Include="..\src\ui\matrica_panel.cpp" />
     <ClCompile Include="..\src\ui\matrica_touch_grabber.cpp" />
+    <ClCompile Include="..\src\util\metronome.cpp" />
     <ClCompile Include="..\src\util\time_seconds.cpp" />
     <ClCompile Include="..\src\visuals\primitive_pool.cpp" />
     <ClCompile Include="..\src\visuals\triggerable\triggerable_visual.cpp" />
+    <ClCompile Include="..\src\visuals\triggerable\trig_box_slide.cpp" />
     <ClCompile Include="..\src\visuals\triggerable\trig_pop.cpp" />
     <ClCompile Include="..\src\visuals\triggerable\trig_spinning_rect.cpp" />
     <ClCompile Include="..\src\visuals\visual_controller.cpp" />
-    <ClCompile Include="..\src\visuals\visual_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h" />
@@ -154,20 +158,24 @@
     <ClInclude Include="..\src\app\globals.h" />
     <ClInclude Include="..\src\app\matrica_app.h" />
     <ClInclude Include="..\src\events\app_events.h" />
+    <ClInclude Include="..\src\events\instrument_events.h" />
+    <ClInclude Include="..\src\events\time_events.h" />
     <ClInclude Include="..\src\model\all_data.h" />
+    <ClInclude Include="..\src\model\color_scheme.h" />
     <ClInclude Include="..\src\query\query_handler.h" />
     <ClInclude Include="..\src\ui\background\background_view.h" />
     <ClInclude Include="..\src\ui\matrica_button.h" />
     <ClInclude Include="..\src\ui\matrica_controller.h" />
     <ClInclude Include="..\src\ui\matrica_panel.h" />
     <ClInclude Include="..\src\ui\matrica_touch_grabber.h" />
+    <ClInclude Include="..\src\util\metronome.h" />
     <ClInclude Include="..\src\util\time_seconds.h" />
     <ClInclude Include="..\src\visuals\primitive_pool.h" />
+    <ClInclude Include="..\src\visuals\triggerable\trig_box_slide.h" />
     <ClInclude Include="..\src\visuals\triggerable\trig_pop.h" />
     <ClInclude Include="..\src\visuals\triggerable\trig_spinning_rect.h" />
     <ClInclude Include="..\src\visuals\triggerable_visual.h" />
     <ClInclude Include="..\src\visuals\visual_controller.h" />
-    <ClInclude Include="..\src\visuals\visual_test.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="%DS_PLATFORM_086%\vs2013\FrameworkResources.rc" />

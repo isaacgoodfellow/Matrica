@@ -23,13 +23,12 @@ namespace matrica {
 		
 		MatricaController(Globals& , const MatricaPanel* mc);
 
-		void updateServer(const ds::UpdateParams& updateParams);
-
 	private:
 
 		int it_pos = 0;
 
 		void onAppEvent(const ds::Event&);
+		void onTick();
 
 		//Making this a friend to avoid a lot of function call overhead
 		friend class MatricaPanel;

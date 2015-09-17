@@ -16,7 +16,7 @@
 
 #include "visuals/triggerable/trig_spinning_rect.h"
 #include "visuals/triggerable/trig_pop.h"
-
+#include "visuals/triggerable/trig_box_slide.h"
 
 #pragma warning(disable: 4355)
 
@@ -41,11 +41,12 @@ namespace matrica {
 
 		for (int i = 0; i < 10; ++i){
 
-			if (ci::Rand::randBool()){
-				mRectPool->add(new TrigSpinningRect(mGlobals));
-			}	else {
-				mRectPool->add(new TrigPop(mGlobals));
-			}
+			mRectPool->add(new TrigBoxSlide(mGlobals));
+// 			if (ci::Rand::randBool()){
+// 				mRectPool->add(new TrigSpinningRect(mGlobals));
+// 			}	else {
+// 				mRectPool->add(new TrigPop(mGlobals));
+// 			}
 		}
 
 		sendToFront();

@@ -35,6 +35,18 @@ namespace matrica {
 		});
 		setDown(false);
 
+
+		mTempoVisual = new Sprite(mGlobals.mEngine);
+		
+		addChildPtr(mTempoVisual);
+		mTempoVisual->setPosition(0.0f, 0.0f);
+		mTempoVisual->setColor(ci::Color(0.0f, 1.0f, 0.69f));
+		mTempoVisual->setTransparent(false);
+		mTempoVisual->enable(false);
+		mTempoVisual->setOpacity(0.0f);
+		mTempoVisual->show();
+		mTempoVisual->sendToFront();
+
 		mLed = new Sprite(mGlobals.mEngine);
 		addChildPtr(mLed);
 		mLed->setPosition(0.0f, 0.0f);
@@ -52,7 +64,9 @@ namespace matrica {
 	}
 
 	void MatricaButton::layout(){
+		mTempoVisual->setSize(getWidth(), getHeight());
 		mLed->setSize(getWidth() / 2.0f, getHeight() / 2.0f);
+		mLed->setCornerRadius(mLed->getWidth() / 2.0f);
 		mLed->setCenter(0.5f, 0.5f);
 		mLed->setPosition(getWidth() / 2.0f, getHeight() / 2.0f);
 	}
@@ -91,6 +105,12 @@ namespace matrica {
 
 	}
 
+	void MatricaButton::showStep(){
+		float dur = ci::Rand::randFloat(0.3f, 0.4f);
+		mTempoVisual->setOpacity(0.3f);
+		mGlobals.mEngine.getTweenline().apply(*mTempoVisual, ANIM_OPACITY(), 0.0f, dur);
+	}
+
 	void MatricaButton::changeState(bool in){
 
 		if (!mLed) return;
@@ -99,9 +119,12 @@ namespace matrica {
 		mLed->setSize(getWidth() / 2.0f, getWidth() / 2.0f);
 
 		if (in){
-			setColor(ci::Color(1.0f, 0.1f, 0.7f));
+			setColor(ci::Color(0.3f, 0.3f, 0.3f));
+//			setColor(ci::Color(1.0f, 0.1f, 0.7f));
 		}	else {
-			setColor(ci::Color(.9f, 0.0f, 0.5f));
+			setColor(ci::Color(1.f, 1.f, 1.f));
+
+//			setColor(ci::Color(.9f, 0.0f, 0.5f));
 		}
 	}
 

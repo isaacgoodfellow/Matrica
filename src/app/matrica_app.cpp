@@ -3,7 +3,6 @@
 #include "ui/background/background_view.h"
 #include "ui/matrica_panel.h"
 #include "ui/matrica_controller.h"
-#include "visuals/visual_test.h"
 
 #include "visuals/visual_controller.h"
 
@@ -22,17 +21,17 @@ namespace matrica {
 
 Matrica::Matrica()
 	: inherited(ds::RootList()
-								.ortho() // sample ortho view
-								.pickColor()
+	.ortho() // sample ortho view
+	.pickColor()
 
-								.persp() // sample perp view
-								.perspFov(60.0f)
-								.perspPosition(ci::Vec3f(0.0, 0.0f, 10.0f))
-								.perspTarget(ci::Vec3f(0.0f, 0.0f, 0.0f))
-								.perspNear(0.0002f)
-								.perspFar(20.0f)
+	.persp() // sample perp view
+	.perspFov(60.0f)
+	.perspPosition(ci::Vec3f(0.0, 0.0f, 10.0f))
+	.perspTarget(ci::Vec3f(0.0f, 0.0f, 0.0f))
+	.perspNear(0.0002f)
+	.perspFar(20.0f)
 
-								.ortho() ) // ortho view on top
+	.ortho() ) // ortho view on top
 	, mGlobals(mEngine , mAllData )
 	, mQueryHandler(mEngine, mAllData)
 	, mIdling( false )
@@ -71,14 +70,16 @@ void Matrica::setupServer(){
 	rootSprite.addChildPtr(p);
 
 
-// 	VisualTest *vt = new VisualTest(mGlobals);
-// 	rootSprite.addChildPtr(vt);
+	// add sprites
+	MatricaPanel *p2 = new MatricaPanel(mGlobals);
+	rootSprite.addChildPtr(new MatricaController(mGlobals, p2));
+	rootSprite.addChildPtr(p2);
+	p2->setPosition(p2->getPosition().x + p->getWidth() + 200, p2->getPosition().y);
+
 
 	VisualController *vc = new VisualController(mGlobals);
 	rootSprite.addChildPtr(vc);
 	vc->sendToFront();
-
-
 
 }
 
