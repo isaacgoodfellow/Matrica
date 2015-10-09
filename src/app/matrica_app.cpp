@@ -3,6 +3,7 @@
 #include "ui/background/background_view.h"
 #include "ui/matrica_panel.h"
 #include "ui/matrica_controller.h"
+#include "util/metronome.h"
 
 #include "visuals/visual_controller.h"
 
@@ -57,6 +58,9 @@ void Matrica::setupServer(){
 	ds::ui::Sprite &rootSprite = mEngine.getRootSprite();
 	rootSprite.setTransparent(false);
 	rootSprite.setColor(ci::Color(0.1f, 0.1f, 0.1f));
+
+	Metronome*	metronome = new Metronome(mGlobals);
+	rootSprite.addChildPtr(metronome);
 	
 	BackgroundView* bg = new BackgroundView(mGlobals,  2000, 2000 );
 	rootSprite.addChildPtr(bg);
@@ -68,14 +72,14 @@ void Matrica::setupServer(){
 	MatricaPanel *p = new MatricaPanel(mGlobals);
 	rootSprite.addChildPtr(new MatricaController(mGlobals,p));
 	rootSprite.addChildPtr(p);
-
+	p->setColor(ci::Color(0.8f,0.8f,0.8f));
 
 	// add sprites
 	MatricaPanel *p2 = new MatricaPanel(mGlobals);
 	rootSprite.addChildPtr(new MatricaController(mGlobals, p2));
 	rootSprite.addChildPtr(p2);
 	p2->setPosition(p2->getPosition().x + p->getWidth() + 200, p2->getPosition().y);
-
+	p2->setColor(ci::Color(1.0f, 0.0f, 0.6f));
 
 	VisualController *vc = new VisualController(mGlobals);
 	rootSprite.addChildPtr(vc);

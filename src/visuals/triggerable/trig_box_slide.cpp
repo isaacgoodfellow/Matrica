@@ -56,7 +56,6 @@ namespace matrica {
 		setOpacity(1.0f);
 		setScale(1.3f);
 
-
 		float xp = 0.0f;
 		int alternate = 0;
 		for( auto it = mSliders.begin(); it != mSliders.end(); ++it){

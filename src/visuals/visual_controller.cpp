@@ -7,6 +7,7 @@
 #include "app/app_defs.h"
 #include "app/globals.h"
 #include "events/app_events.h"
+#include "events/instrument_events.h"
 #include "ds/ui/sprite/sprite.h"
 #include "ds/ui/sprite/util/blend.h"
 
@@ -41,12 +42,12 @@ namespace matrica {
 
 		for (int i = 0; i < 10; ++i){
 
-			mRectPool->add(new TrigBoxSlide(mGlobals));
-// 			if (ci::Rand::randBool()){
-// 				mRectPool->add(new TrigSpinningRect(mGlobals));
-// 			}	else {
-// 				mRectPool->add(new TrigPop(mGlobals));
-// 			}
+//			mRectPool->add(new TrigBoxSlide(mGlobals));
+ 			if (ci::Rand::randBool()){
+ 				mRectPool->add(new TrigSpinningRect(mGlobals));
+ 			}	else {
+ 				mRectPool->add(new TrigPop(mGlobals));
+ 			}
 		}
 
 		sendToFront();
@@ -54,7 +55,9 @@ namespace matrica {
 	}
 
 	void VisualController::onAppEvent(const ds::Event& in_e) {
-		mRectPool->triggerNext();
+		if (in_e.mWhat == TriangleFiredEvent::WHAT()){
+			mRectPool->triggerNext();
+		}
 	}
 
 } // namespace jci

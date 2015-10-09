@@ -1,6 +1,6 @@
 #pragma once
-#ifndef UI_MATRICA_CONTROLLER_H_
-#define UI_MATRICA_CONTROLLER_H_
+#ifndef UI_MATRICA_UTIL_METRONOME_H_
+#define UI_MATRICA_UTIL_METRONOME_H_
 
 #include "util/time_seconds.h"
 #include <ds/app/event_client.h>
