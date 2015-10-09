@@ -3,7 +3,7 @@ Matrica is a musical instrument designed for large scale touchscreens with play 
 
 
 
-![Early Stages](https://github.com/isaacgoodfellow/Matrica/blob/master/docs/matrica.PNG)
+![Early Stages](https://github.com/isaacgoodfellow/Matrica/blob/master/docs/matrica_cropped.PNG)
 
 ##DS_CINDER
 
