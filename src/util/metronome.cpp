@@ -12,12 +12,9 @@ namespace matrica{
 
 	Metronome::Metronome(Globals& g)
 		: inherited(g.mEngine)
-		, mGlobals(g)
-		, mEventClient(g.mEngine.getNotifier(), [this](const ds::Event *m){ if (m) this->onAppEvent(*m); }){
-
+		, mGlobals(g){
 		mLastFire = 0.0f;
 		time_between = 0.2f;
-
 	}
 
 	void Metronome::updateServer(const ds::UpdateParams& updateParams){
@@ -28,9 +25,6 @@ namespace matrica{
 			mLastFire = (float)mTimer.elapsed();
 		}
 
-	}
-
-	void Metronome::onAppEvent(const ds::Event& in_e) {
 	}
 
 }

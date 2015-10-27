@@ -3,7 +3,9 @@
 #include "ui/background/background_view.h"
 #include "ui/matrica_panel.h"
 #include "ui/matrica_controller.h"
+
 #include "util/metronome.h"
+#include "util/osc_sender.h"
 
 #include "visuals/visual_controller.h"
 
@@ -36,16 +38,16 @@ Matrica::Matrica()
 	, mGlobals(mEngine , mAllData )
 	, mQueryHandler(mEngine, mAllData)
 	, mIdling( false )
+	, mOscSender( mGlobals, "127.0.0.1", 9001 )
 {
 
 	/*fonts in use */
 	mEngine.editFonts().install(ds::Environment::getAppFile("data/fonts/NotoSans-Bold.ttf"), "noto-bold");
-
 	enableCommonKeystrokes(true);
+
 }
 
 void Matrica::setupServer(){
-
 
 	/* Settings */
 	mEngine.loadSettings(SETTINGS_LAYOUT, "layout.xml");

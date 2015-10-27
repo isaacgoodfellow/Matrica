@@ -5,15 +5,16 @@ namespace matrica {
 	/**
 	* \class matrica::TriangleFired
 	*/
-	static ds::EventRegistry    TRI_FIRED("TriangleFired");
+	static ds::EventRegistry    NOTE_FIRED("NoteFired");
 
-	int TriangleFiredEvent::WHAT() {
-		return TRI_FIRED.mWhat;
+	int NoteFiredEvent::WHAT() {
+		return NOTE_FIRED.mWhat;
 	}
 
-	TriangleFiredEvent::TriangleFiredEvent(int in)
-		: ds::Event(TRI_FIRED.mWhat)
-		, mNote(in)
+	NoteFiredEvent::NoteFiredEvent(const std::string& channel, int note)
+		: ds::Event(NOTE_FIRED.mWhat)
+		, mNote(note)
+		, mChannel(channel)
 	{
 	}
 

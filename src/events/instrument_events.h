@@ -8,14 +8,15 @@
 namespace matrica {
 
 	/**
-	* \class matrica::TriangleFiredEvent
-	* \brief trianglewaveform instrument fired
+	* \class matrica::NoteFiredEvent
+	* \brief A note was played
 	*/
-	class TriangleFiredEvent : public ds::Event {
+	class NoteFiredEvent : public ds::Event {
 	public:
 		static int			WHAT();
-		TriangleFiredEvent(int note);
-		int mNote;
+		NoteFiredEvent( const std::string& channel, int note);
+		const std::string& mChannel;
+		const int mNote;
 	};
 
 } // namespace matrica

@@ -4,11 +4,13 @@
 #include <cinder/app/AppBasic.h>
 #include <ds/app/app.h>
 
+#include "util/osc_sender.h"
 #include "app/globals.h"
 #include "query/query_handler.h"
 
 namespace matrica {
 class AllData;
+class OSCSender;
 
 class Matrica : public ds::App {
 public:
@@ -26,6 +28,9 @@ private:
 	// Data acquisition
 	Globals				mGlobals;
 	QueryHandler		mQueryHandler;
+
+	//Utilities
+	OSCSender			mOscSender;
 
 	//Idle state of the app to detect state change
 	bool				mIdling;

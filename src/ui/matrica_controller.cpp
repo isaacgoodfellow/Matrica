@@ -29,7 +29,7 @@ namespace matrica{
 			if ((*it)->mState){
 				(*it)->fireLed();
 				int note_no = mMatrica->y_res - (*it)->y;
-				mGlobals.mEngine.getNotifier().notify(TriangleFiredEvent(note_no));
+				mGlobals.mEngine.getNotifier().notify( NoteFiredEvent( "triangle", note_no));
 			}
 		}
 

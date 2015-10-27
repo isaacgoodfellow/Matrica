@@ -1,12 +1,8 @@
 #include "metronome.h"
 #include "app/globals.h"
 #include "events/app_events.h"
-#include "events/time_events.h"
-
-#include "cinder/Rand.h"
-
+#include "events/instrument_events.h"
 #include "osc_sender.h"
-
 
 namespace matrica{
 
@@ -16,13 +12,17 @@ namespace matrica{
 		, mHost(host)
 		, mPort(port)
 	{
+		mSender.setup(mHost, mPort);
 	}
 
 	void OSCSender::onAppEvent(const ds::Event& in_e) {
-		ci::osc::Message message;
-		message.setAddress("/test");
-		message.addIntArg(2);//note_no);
-		sender.sendMessage(message);
+		if (in_e.mWhat == NoteFiredEvent::WHAT()){
+			const NoteFiredEvent&	e((NoteFiredEvent&)in_e);
+			ci::osc::Message message;
+			message.setAddress(e.mChannel);
+			message.addIntArg(e.mNote);
+			mSender.sendMessage(message);
+		}
 	}
 
 }

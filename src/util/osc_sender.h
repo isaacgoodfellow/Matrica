@@ -28,7 +28,7 @@ namespace matrica {
 		Globals&					mGlobals;
 		ds::EventClient				mEventClient;
 
-		ci::osc::Sender sender;
+		ci::osc::Sender				mSender;
 		const std::string			mHost;
 		const int 					mPort;
 

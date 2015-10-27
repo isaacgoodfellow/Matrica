@@ -40,6 +40,8 @@ namespace matrica {
 
 		addChildPtr(mRectPool);
 
+
+		//todo: remove this placeholder pool filler
 		for (int i = 0; i < 10; ++i){
 
 //			mRectPool->add(new TrigBoxSlide(mGlobals));
@@ -55,7 +57,7 @@ namespace matrica {
 	}
 
 	void VisualController::onAppEvent(const ds::Event& in_e) {
-		if (in_e.mWhat == TriangleFiredEvent::WHAT()){
+		if (in_e.mWhat == NoteFiredEvent::WHAT()){
 			mRectPool->triggerNext();
 		}
 	}

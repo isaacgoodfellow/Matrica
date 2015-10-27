@@ -26,14 +26,10 @@ namespace matrica {
 
 	private:
 
-		void onAppEvent(const ds::Event&);
-
 		typedef ds::ui::Sprite		inherited;
 		Globals&					mGlobals;
-		ds::EventClient				mEventClient;
 
 		ds::time::Seconds		mTimer;
-
 		float mLastFire;
 		float time_between;
 
