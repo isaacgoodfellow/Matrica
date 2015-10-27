@@ -30,22 +30,12 @@ namespace matrica {
 		void onAppEvent(const ds::Event&);
 		void onTick();
 
-		//Making this a friend to avoid a lot of function call overhead
 		friend class MatricaPanel;
 
 		typedef ds::ui::Sprite		inherited;
 		Globals&					mGlobals;
 		ds::EventClient				mEventClient;
 		const MatricaPanel* mMatrica;
-
-		ds::time::Seconds		mTimer;
-
-		ci::osc::Sender sender;
-		std::string		host;
-		int 			port;
-
-		float mLastFire;
-		float time_between;
 
 	};
 

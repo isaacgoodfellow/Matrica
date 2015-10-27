@@ -29,10 +29,8 @@ namespace matrica {
 		enableMultiTouch(ds::ui::MULTITOUCH_CAN_POSITION | ds::ui::MULTITOUCH_CAN_SCALE);
 		enable(true);
 
-//		setColor(ci::Color(0.8f,0.8f,0.8f));
 		setColor(ci::Color(1.0f,0.0f, 0.6f));
 		setBlendMode(ds::ui::BlendMode::MULTIPLY);
-//		setColor(ci::Color(0.0f, 1.0f, 0.69f));
 
 		ci::Vec2f pos = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getSize("matrica:panel:position");
 		

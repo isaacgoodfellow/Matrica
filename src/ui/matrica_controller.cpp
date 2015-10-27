@@ -19,10 +19,6 @@ namespace matrica{
 	, mMatrica(mc)
 	, mEventClient(g.mEngine.getNotifier(), [this](const ds::Event *m){ if (m) this->onAppEvent(*m); }){
 
-		host = "127.0.0.1";
-		port = 9001;
-		sender.setup(host, port, true);
-
 	}
 
 	//advance the step iterator and fire active steps
@@ -34,10 +30,6 @@ namespace matrica{
 				(*it)->fireLed();
 				int note_no = mMatrica->y_res - (*it)->y;
 				mGlobals.mEngine.getNotifier().notify(TriangleFiredEvent(note_no));
-				ci::osc::Message message;
-				message.setAddress("/test");
-				message.addIntArg(note_no);
-				sender.sendMessage(message);
 			}
 		}
 
