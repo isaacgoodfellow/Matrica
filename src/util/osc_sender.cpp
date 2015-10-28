@@ -1,8 +1,11 @@
-#include "metronome.h"
+#include "osc_sender.h"
+
 #include "app/globals.h"
 #include "events/app_events.h"
 #include "events/instrument_events.h"
-#include "osc_sender.h"
+#include "model/MatricaModel.h"
+#include "util/metronome.h"
+
 
 namespace matrica{
 
@@ -19,7 +22,7 @@ namespace matrica{
 		if (in_e.mWhat == NoteFiredEvent::WHAT()){
 			const NoteFiredEvent&	e((NoteFiredEvent&)in_e);
 			ci::osc::Message message;
-			message.setAddress(e.mChannel);
+			message.setAddress(e.mModel.getChannel());
 			message.addIntArg(e.mNote);
 			mSender.sendMessage(message);
 		}

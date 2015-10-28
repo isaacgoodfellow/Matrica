@@ -19,27 +19,28 @@ namespace matrica {
 	BackgroundView::BackgroundView(Globals& g, float x, float y)
 		: inherited(g.mEngine)
 		, mGlobals(g)
-		, mShadeImg(ds::ui::Sprite::makeAlloc<ds::ui::Image>([&g]()->ds::ui::Image*{return new ds::ui::Image(g.mEngine, ds::ui::Image::IMG_CACHE_F); }, this))
+		, mBackgroundImage(ds::ui::Sprite::makeAlloc<ds::ui::Image>([&g]()->ds::ui::Image*{return new ds::ui::Image(g.mEngine, ds::ui::Image::IMG_CACHE_F); }, this))
 	{
 
 		hide();
 		setTransparent(true);
 		setSize(x, y);
-		addChild(mShadeImg);
- 		mShadeImg.setImageFile(ds::Environment::getAppFolder("data/images/", "hi_res_forest.jpg"));
- 		mShadeImg.setTransparent(false);
- 		mShadeImg.setOpacity(1.0f);
-		mShadeImg.setCenter(0.0f, 1.0f);
-		mShadeImg.setPosition(0.0f, mGlobals.mEngine.getWorldHeight());
- 		mShadeImg.show();
+		addChild(mBackgroundImage);
+ 		mBackgroundImage.setImageFile(ds::Environment::getAppFolder("data/images/", "hi_res_forest.jpg"));
+ 		mBackgroundImage.setTransparent(false);
+ 		mBackgroundImage.setOpacity(0.01f);
+		mBackgroundImage.setCenter(0.0f, 1.0f);
+		mBackgroundImage.setPosition(0.0f, mGlobals.mEngine.getWorldHeight());
+ 		mBackgroundImage.show();
 
 		//Scale up the image to fit
-		float w = mShadeImg.getWidth();
-		float h = mShadeImg.getHeight();
-		float dw = mGlobals.mEngine.getWorldWidth() / mShadeImg.getWidth();
-		float dh = mGlobals.mEngine.getWorldWidth() / mShadeImg.getHeight();
+		float w = mBackgroundImage.getWidth();
+		float h = mBackgroundImage.getHeight();
+		float dw = mGlobals.mEngine.getWorldWidth() / mBackgroundImage.getWidth();
+		float dh = mGlobals.mEngine.getWorldWidth() / mBackgroundImage.getHeight();
 		float s = (dw > dh) ? dw : dh;
-		mShadeImg.setScale(s);
+		mBackgroundImage.setScale(s);
+		mBackgroundImage.tweenOpacity(1.0f, 1.0f, 0.0f, ci::EaseInAtan());
 
 	}
 

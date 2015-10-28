@@ -64,6 +64,9 @@
     <ClCompile Include="..\src\model\MatricaModel.cpp">
       <Filter>src\model</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ui\background\transition.cpp">
+      <Filter>src\ui\background</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\app\app_defs.h">
@@ -137,6 +140,9 @@
     </ClInclude>
     <ClInclude Include="..\src\model\MatricaModel.h">
       <Filter>src\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ui\background\transition.h">
+      <Filter>src\ui\background</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

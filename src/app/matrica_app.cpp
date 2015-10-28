@@ -1,15 +1,5 @@
 #include "matrica_app.h"
 
-#include "ui/background/background_view.h"
-#include "ui/matrica_panel.h"
-#include "ui/matrica_controller.h"
-
-#include "util/metronome.h"
-#include "util/osc_sender.h"
-
-#include "visuals/triggerable_visual.h"
-#include "visuals/visual_controller.h"
-
 #include <Poco/String.h>
 #include <ds/app/environment.h>
 #include <ds/debug/logger.h>
@@ -20,6 +10,16 @@
 
 #include "events/app_events.h"
 
+#include "ui/background/background_view.h"
+#include "ui/background/transition.h"
+#include "ui/matrica_panel.h"
+#include "ui/matrica_controller.h"
+
+#include "util/metronome.h"
+#include "util/osc_sender.h"
+
+#include "visuals/triggerable_visual.h"
+#include "visuals/visual_controller.h"
 
 namespace matrica {
 
@@ -47,7 +47,6 @@ Matrica::Matrica()
 	mEngine.editFonts().install(ds::Environment::getAppFile("data/fonts/NotoSans-Bold.ttf"), "noto-bold");
 	enableCommonKeystrokes(true);
 
-
 }
 
 void Matrica::setupServer(){
@@ -63,15 +62,15 @@ void Matrica::setupServer(){
 	ds::ui::Sprite &rootSprite = mEngine.getRootSprite();
 	rootSprite.setTransparent(false);
 	rootSprite.setColor(ci::Color(0.1f, 0.1f, 0.1f));
+
 	
 	BackgroundView* bg = new BackgroundView(mGlobals,  2000, 2000 );
 	rootSprite.addChildPtr(bg);
-	bg->setTransparent(false);
 	bg->show();
 	bg->setPosition(0.0f, 0.0f);
 
 	// add sprites
-	MatricaModel m = MatricaModel(16, 8, "triangle/", TriggerableVisual::kVisualPop, mGlobals.mColor_Green, mGlobals.mColor_Pink, mGlobals.mColor_Green);
+	MatricaModel m = MatricaModel(1, 16, 8, "triangle/", TriggerableVisual::kVisualPop, mGlobals.mColor_Green, mGlobals.mColor_Pink, mGlobals.mColor_Green);
 	MatricaPanel *p = new MatricaPanel(mGlobals, m);
 	rootSprite.addChildPtr(new MatricaController(mGlobals,p));
 	rootSprite.addChildPtr(p);
@@ -80,6 +79,8 @@ void Matrica::setupServer(){
 	VisualController *vc = new VisualController(mGlobals);
 	rootSprite.addChildPtr(vc);
 	vc->sendToFront();
+
+	rootSprite.addChildPtr(new TransitionView(mGlobals));
 
 }
 

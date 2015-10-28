@@ -1,4 +1,5 @@
 #include "events/instrument_events.h"
+#include "model/MatricaModel.h"
 
 namespace matrica {
 
@@ -11,10 +12,10 @@ namespace matrica {
 		return NOTE_FIRED.mWhat;
 	}
 
-	NoteFiredEvent::NoteFiredEvent(const std::string& channel, int note)
+	NoteFiredEvent::NoteFiredEvent(const MatricaModel& model, int note)
 		: ds::Event(NOTE_FIRED.mWhat)
 		, mNote(note)
-		, mChannel(channel)
+		, mModel(model)
 	{
 	}
 

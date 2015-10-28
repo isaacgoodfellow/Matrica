@@ -33,6 +33,8 @@ namespace matrica {
 		ds::EventClient				mEventClient;
 
 		PrimitivePool* mRectPool;
+		PrimitivePool* mPopPool;
+		PrimitivePool* mBoxPool;
 
 	};
 

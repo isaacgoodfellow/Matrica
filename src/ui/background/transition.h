@@ -1,32 +1,29 @@
 #pragma once
-#ifndef UI_BACKGROUND_VIEW_H_
-#define UI_BACKGROUND_VIEW_H_
+#ifndef UI_TRANSITION_VIEW_H_
+#define UI_TRANSITION_VIEW_H_
 
 #include <ds/app/event_client.h>
 #include <ds/ui/sprite/image.h>
 #include <ds/ui/sprite/sprite.h>
-
 
 namespace matrica {
 
 	class Globals;
 
 	/**
-	* \class Matrica::BackgroundView
-	* \brief the background view
+	* \class Matrica::TransitionView
+	* \brief the dramatic fade in at the start
 	*/
-	class BackgroundView : public ds::ui::Sprite {
+	class TransitionView : public ds::ui::Sprite {
 
 	public:
 
-		BackgroundView(Globals&, float x, float y);
+		TransitionView(Globals&);
 
 	private:
 
 		typedef ds::ui::Sprite		inherited;
-		ds::ui::Image&				mBackgroundImage;
 		Globals&					mGlobals;
-
 
 	};
 

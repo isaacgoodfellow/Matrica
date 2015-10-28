@@ -7,6 +7,8 @@
 
 namespace matrica {
 
+	class MatricaModel;
+
 	/**
 	* \class matrica::NoteFiredEvent
 	* \brief A note was played
@@ -14,8 +16,9 @@ namespace matrica {
 	class NoteFiredEvent : public ds::Event {
 	public:
 		static int			WHAT();
-		NoteFiredEvent( const std::string& channel, int note);
-		const std::string& mChannel;
+		//todo: Change this from a reference to something faster, like index or something
+		NoteFiredEvent( const MatricaModel& model, int note);
+		const MatricaModel& mModel;
 		const int mNote;
 	};
 
