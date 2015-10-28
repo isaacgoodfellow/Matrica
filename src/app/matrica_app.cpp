@@ -43,7 +43,7 @@ Matrica::Matrica()
 	, mMetronome(mGlobals)
 {
 
-	/*fonts in use */
+	/* fonts in use */
 	mEngine.editFonts().install(ds::Environment::getAppFile("data/fonts/NotoSans-Bold.ttf"), "noto-bold");
 	enableCommonKeystrokes(true);
 
@@ -74,7 +74,7 @@ void Matrica::setupServer(){
 	MatricaPanel *p = new MatricaPanel(mGlobals, m);
 	rootSprite.addChildPtr(new MatricaController(mGlobals,p));
 	rootSprite.addChildPtr(p);
-	p->setColor(ci::Color(0.8f,0.8f,0.8f));
+	p->setPosition(mGlobals.mEngine.getWorldWidth() / 2.0f, mGlobals.mEngine.getWorldHeight() / 2.0f);
 
 	VisualController *vc = new VisualController(mGlobals);
 	rootSprite.addChildPtr(vc);

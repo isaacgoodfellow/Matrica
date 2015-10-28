@@ -35,6 +35,9 @@ public:
 
 	ci::Color				mColor_Green;
 	ci::Color				mColor_Pink;
+	ci::Color				mColor_Yellow;
+	ci::Color				mColor_Blue;
+
 
 };
 

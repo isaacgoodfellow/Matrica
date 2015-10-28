@@ -29,7 +29,7 @@ namespace matrica {
 		setOpacity(1.0f);
 
 		setColor(ci::Color(0.0f, 0.0f, 0.0f));
-		tweenOpacity(0.0f, 3.0f, 3.0f, ci::EaseInCirc(), [this]{ release(); });
+		tweenOpacity(0.0f, 3.0f, 3.0f, ci::EaseOutInQuad(), [this]{ release(); });
 
 		sendToFront();
 
