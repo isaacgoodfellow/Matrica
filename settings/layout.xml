@@ -1,6 +1,6 @@
 <settings>
 
-	<size name="matrica:panel:position" x="100" y ="300" />
+	<size name="matrica:panel:position" x="300" y ="500" />
 	<size name="matrica:panel:button:size" x="60" y ="60" />
 	<size name="matrica:panel:size" x="1211" y ="1211" />
 	<float name="matrica:panel:corner:radius" value="20" />

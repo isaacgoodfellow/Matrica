@@ -15,6 +15,8 @@ namespace matrica {
  */
 Globals::Globals(ds::ui::SpriteEngine& e , const AllData& d )
 		: mEngine(e){
+	mColor_Green = ci::Color(1.0f, 1.0f, 1.0f);
+	mColor_Pink = ci::Color(1.0f, 1.0f, 1.0f);
 }
 
 const ds::cfg::Settings& Globals::getSettings(const std::string& name) const {

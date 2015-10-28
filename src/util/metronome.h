@@ -17,21 +17,20 @@ namespace matrica {
 	* \brief Metronome and tempo notifier
 	*/
 
-	class Metronome : public ds::ui::Sprite {
+	class Metronome {
 	public:
 
 		Metronome(Globals&);
 
-		void updateServer(const ds::UpdateParams& updateParams);
+		void update();
 
 	private:
 
-		typedef ds::ui::Sprite		inherited;
 		Globals&					mGlobals;
 
 		ds::time::Seconds		mTimer;
 		float mLastFire;
-		float time_between;
+		float mTimeBetween;
 
 	};
 

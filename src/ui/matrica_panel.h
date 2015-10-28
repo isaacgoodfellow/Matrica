@@ -4,10 +4,12 @@
 
 #include <ds/app/event_client.h>
 #include <ds/ui/sprite/image.h>
+#include "model/MatricaModel.h"
 
 namespace matrica {
 	class Globals;
 	class MatricaButton;
+	class MatricaModel;
 
 	/**
 	* \class Matrica::MatricaPanel
@@ -17,7 +19,7 @@ namespace matrica {
 	
 	public:
 
-		MatricaPanel(Globals&);
+		MatricaPanel(Globals&, MatricaModel& model);
 
 	private:
 
@@ -30,9 +32,12 @@ namespace matrica {
 
 		void						onAppEvent(const ds::Event&);
 
+		void						animateOn();
+
 		typedef ds::ui::Sprite		inherited;
 		Globals&					mGlobals;
 		ds::EventClient				mEventClient;
+		MatricaModel				mModel;
 
 		std::vector<std::vector<MatricaButton*> > mButtons;
 

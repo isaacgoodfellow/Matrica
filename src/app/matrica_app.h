@@ -3,14 +3,13 @@
 
 #include <cinder/app/AppBasic.h>
 #include <ds/app/app.h>
-
-#include "util/osc_sender.h"
 #include "app/globals.h"
+#include "util/osc_sender.h"
+#include "util/metronome.h"
 #include "query/query_handler.h"
 
 namespace matrica {
 class AllData;
-class OSCSender;
 
 class Matrica : public ds::App {
 public:
@@ -31,10 +30,10 @@ private:
 
 	//Utilities
 	OSCSender			mOscSender;
+	Metronome			mMetronome;
 
 	//Idle state of the app to detect state change
 	bool				mIdling;
-
 
 	void				moveCamera(const ci::Vec3f& deltaMove);
 };

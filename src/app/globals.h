@@ -33,6 +33,8 @@ public:
 	const ds::cfg::Settings&		getSettingsLayout() const;
 	const ds::cfg::Settings&		getSettings(const std::string& name) const;
 
+	ci::Color				mColor_Green;
+	ci::Color				mColor_Pink;
 
 };
 

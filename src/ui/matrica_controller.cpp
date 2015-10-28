@@ -18,7 +18,6 @@ namespace matrica{
 	, mGlobals(g)
 	, mMatrica(mc)
 	, mEventClient(g.mEngine.getNotifier(), [this](const ds::Event *m){ if (m) this->onAppEvent(*m); }){
-
 	}
 
 	//advance the step iterator and fire active steps
@@ -29,7 +28,7 @@ namespace matrica{
 			if ((*it)->mState){
 				(*it)->fireLed();
 				int note_no = mMatrica->y_res - (*it)->y;
-				mGlobals.mEngine.getNotifier().notify( NoteFiredEvent( "triangle", note_no));
+				mGlobals.mEngine.getNotifier().notify( NoteFiredEvent( mMatrica->mModel.getChannel() , note_no));
 			}
 		}
 

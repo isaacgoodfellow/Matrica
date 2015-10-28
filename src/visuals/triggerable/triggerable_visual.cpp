@@ -25,6 +25,7 @@ namespace matrica {
 	TriggerableVisual::TriggerableVisual(Globals& g)
 		: inherited(g.mEngine)
 		, mGlobals(g)
+		, mType(TriggerableVisual::kVisualBase)
 	{
 
 		setTransparent(false);

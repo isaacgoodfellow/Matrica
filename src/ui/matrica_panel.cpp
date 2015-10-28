@@ -9,6 +9,7 @@
 #include <ds/ui/tween/tweenline.h>
 #include "app/app_defs.h"
 #include "app/globals.h"
+#include "events/app_events.h"
 #include "ui/matrica_button.h"
 #include "ui/matrica_touch_grabber.h"
 #include<ds/ui/touch/multi_touch_constraints.h>
@@ -21,16 +22,16 @@ namespace matrica {
 	* Matrica::MatricaPanel
 	*/
 
-	MatricaPanel::MatricaPanel(Globals& g)
+	MatricaPanel::MatricaPanel(Globals& g, MatricaModel& model)
 		: inherited(g.mEngine)
 		, mGlobals(g)
+		, mModel(model)
 		, mEventClient(g.mEngine.getNotifier(), [this](const ds::Event *m){ if (m) this->onAppEvent(*m); }){
 
 		enableMultiTouch(ds::ui::MULTITOUCH_CAN_POSITION | ds::ui::MULTITOUCH_CAN_SCALE);
 		enable(true);
 
-		setColor(ci::Color(1.0f,0.0f, 0.6f));
-		setBlendMode(ds::ui::BlendMode::MULTIPLY);
+		setColor(model.getMainColor());
 
 		ci::Vec2f pos = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getSize("matrica:panel:position");
 		
@@ -39,8 +40,8 @@ namespace matrica {
 		float cornerRad = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getFloat("matrica:panel:corner:radius");
 		float button_pad = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getFloat("matrica:panel:button:pad");
 
-		x_res = 16;
-		y_res = 8;
+		x_res = model.getXRes();
+		y_res = model.getYRes();
 
 		float width = x_res * button_size.x + x_res * (button_pad - 1) + button_gutter * 2.0f;
 		float height = y_res * button_size.y + y_res * (button_pad - 1) + button_gutter * 2.0f;
@@ -79,11 +80,24 @@ namespace matrica {
 			xp += button_pad;
 		}
 
+		setCenter(0.5f, 0.5f);
+		setScale(0.0f);
+		setOpacity(0.0f);
+
 	}
 
-	void MatricaPanel::onAppEvent(const ds::Event& in_e) {
+	void MatricaPanel::animateOn(){
+		float dur = 1.0f;
+		tweenOpacity(1.0f, dur, 0.0f, cinder::EaseInOutCirc());
+		tweenScale(ci::Vec3f(1.0f, 1.0f, 1.0f), dur, 0.0f, cinder::EaseInOutCirc());
+	}
 
-	
+
+	void MatricaPanel::onAppEvent(const ds::Event& in_e) {
+		if (in_e.mWhat == IdleEndedEvent::WHAT()){
+			animateOn();
+		}
+
 	}
 
 } // namespace jci

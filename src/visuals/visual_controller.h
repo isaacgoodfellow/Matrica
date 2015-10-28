@@ -23,7 +23,6 @@ namespace matrica {
 
 		VisualController(Globals&);
 
-
 	private:
 
 		void						onAppEvent(const ds::Event&);

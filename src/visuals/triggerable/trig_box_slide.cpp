@@ -27,6 +27,7 @@ namespace matrica {
 	TrigBoxSlide::TrigBoxSlide(Globals& g)
 		: TriggerableVisual(g)
 	{
+		mType = kVisualBoxSlide;
 		setSize(100, 100);
 		for (int i = 0; i < 3; ++i){
 			mSliders.push_back(new Sprite(mGlobals.mEngine));

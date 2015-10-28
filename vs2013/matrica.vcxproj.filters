@@ -61,6 +61,9 @@
     <ClCompile Include="..\src\util\osc_sender.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\model\MatricaModel.cpp">
+      <Filter>src\model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\app\app_defs.h">
@@ -131,6 +134,9 @@
     </ClInclude>
     <ClInclude Include="..\src\util\osc_sender.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\model\MatricaModel.h">
+      <Filter>src\model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

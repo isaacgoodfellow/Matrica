@@ -40,16 +40,15 @@ namespace matrica {
 
 		addChildPtr(mRectPool);
 
-
 		//todo: remove this placeholder pool filler
 		for (int i = 0; i < 10; ++i){
 
-//			mRectPool->add(new TrigBoxSlide(mGlobals));
- 			if (ci::Rand::randBool()){
- 				mRectPool->add(new TrigSpinningRect(mGlobals));
- 			}	else {
- 				mRectPool->add(new TrigPop(mGlobals));
- 			}
+			mRectPool->add(new TrigBoxSlide(mGlobals));
+//  			if (ci::Rand::randBool()){
+//  				mRectPool->add(new TrigSpinningRect(mGlobals));
+//  			}	else {
+//  				mRectPool->add(new TrigPop(mGlobals));
+//  			}
 		}
 
 		sendToFront();

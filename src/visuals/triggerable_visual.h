@@ -18,13 +18,20 @@ namespace matrica {
 	class TriggerableVisual : public ds::ui::Sprite {
 	public:
 
+		enum VisualType {
+			kVisualBase, kVisualPop, kVisualSpinningRect, kVisualBoxSlide
+		};
+
 		TriggerableVisual(Globals& g);
 		virtual void trigger();
 		virtual void init();
+		VisualType mType;
+
 
 	protected:
 		typedef ds::ui::Sprite		inherited;
 		Globals&					mGlobals;
+
 
 	};
 

@@ -7,6 +7,7 @@
 #include "util/metronome.h"
 #include "util/osc_sender.h"
 
+#include "visuals/triggerable_visual.h"
 #include "visuals/visual_controller.h"
 
 #include <Poco/String.h>
@@ -39,11 +40,13 @@ Matrica::Matrica()
 	, mQueryHandler(mEngine, mAllData)
 	, mIdling( false )
 	, mOscSender( mGlobals, "127.0.0.1", 9001 )
+	, mMetronome(mGlobals)
 {
 
 	/*fonts in use */
 	mEngine.editFonts().install(ds::Environment::getAppFile("data/fonts/NotoSans-Bold.ttf"), "noto-bold");
 	enableCommonKeystrokes(true);
+
 
 }
 
@@ -60,9 +63,6 @@ void Matrica::setupServer(){
 	ds::ui::Sprite &rootSprite = mEngine.getRootSprite();
 	rootSprite.setTransparent(false);
 	rootSprite.setColor(ci::Color(0.1f, 0.1f, 0.1f));
-
-	Metronome*	metronome = new Metronome(mGlobals);
-	rootSprite.addChildPtr(metronome);
 	
 	BackgroundView* bg = new BackgroundView(mGlobals,  2000, 2000 );
 	rootSprite.addChildPtr(bg);
@@ -71,17 +71,11 @@ void Matrica::setupServer(){
 	bg->setPosition(0.0f, 0.0f);
 
 	// add sprites
-	MatricaPanel *p = new MatricaPanel(mGlobals);
+	MatricaModel m = MatricaModel(16, 8, "triangle/", TriggerableVisual::kVisualPop, mGlobals.mColor_Green, mGlobals.mColor_Pink, mGlobals.mColor_Green);
+	MatricaPanel *p = new MatricaPanel(mGlobals, m);
 	rootSprite.addChildPtr(new MatricaController(mGlobals,p));
 	rootSprite.addChildPtr(p);
 	p->setColor(ci::Color(0.8f,0.8f,0.8f));
-
-	// add sprites
-	MatricaPanel *p2 = new MatricaPanel(mGlobals);
-	rootSprite.addChildPtr(new MatricaController(mGlobals, p2));
-	rootSprite.addChildPtr(p2);
-	p2->setPosition(p2->getPosition().x + p->getWidth() + 200, p2->getPosition().y);
-	p2->setColor(ci::Color(1.0f, 0.0f, 0.6f));
 
 	VisualController *vc = new VisualController(mGlobals);
 	rootSprite.addChildPtr(vc);
@@ -101,6 +95,8 @@ void Matrica::update() {
 		mIdling = false;
 		mEngine.getNotifier().notify( IdleEndedEvent() );
 	}
+
+	mMetronome.update();
 
 }
 

@@ -25,6 +25,7 @@ namespace matrica {
 	TrigSpinningRect::TrigSpinningRect(Globals& g)
 		: TriggerableVisual(g)
 	{
+		mType = kVisualSpinningRect;
 	}
 
 	void TrigSpinningRect::init(){

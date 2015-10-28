@@ -27,6 +27,9 @@ namespace matrica {
 	TrigPop::TrigPop(Globals& g)
 		: TriggerableVisual(g)
 	{
+
+		mType = kVisualPop;
+
 		setColor(ci::Color(0.0f,0.0f,0.0f));
 		mBasePop = new ds::ui::Sprite(mGlobals.mEngine);
 		mAccentPop = new ds::ui::Sprite(mGlobals.mEngine);
@@ -38,7 +41,6 @@ namespace matrica {
 		for (int i = 0; i < 10; ++i){
 			ds::ui::Image* di = new ds::ui::Image(mGlobals.mEngine);
 			mRays.push_back(di);
-//			mRays.push_back(new ds::ui::Sprite(mGlobals.mEngine));
 
 			switch (sw)
 			{
