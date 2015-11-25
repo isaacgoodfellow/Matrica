@@ -19,7 +19,7 @@ namespace matrica {
 	public:
 
 		enum VisualType {
-			kVisualBase, kVisualPop, kVisualSpinningRect, kVisualBoxSlide
+			kVisualBase, kVisualPop, kVisualSpinningRect, kVisualBoxSlide, kVisualSmokePop
 		};
 
 		TriggerableVisual(Globals& g);

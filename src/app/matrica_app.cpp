@@ -64,7 +64,7 @@ void Matrica::setupServer(){
 	rootSprite.setColor(ci::Color(0.1f, 0.1f, 0.1f));
 
 	
-	BackgroundView* bg = new BackgroundView(mGlobals,  2000, 2000 );
+	BackgroundView* bg = new BackgroundView( mGlobals,  2000, 2000 );
 	rootSprite.addChildPtr(bg);
 	bg->show();
 	bg->setPosition(0.0f, 0.0f);
