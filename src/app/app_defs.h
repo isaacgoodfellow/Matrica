@@ -8,20 +8,8 @@ namespace matrica {
 extern const ds::BitMask		APP_LOG;
 
 // SETTINGS
-extern const std::string&		SETTINGS_SETUP;
-extern const std::string&		SETTINGS_DEBUG_ONLY;
-extern const std::string&		SETTINGS_LAYOUT;
-extern const std::string&		SETTINGS_KEYBOARD;
+extern const std::string&		SETTINGS_APP;
 
-// FONTS
-extern const std::string&		UNIV_LT;
-extern const std::string&		UNIV_LT_OB;
-extern const std::string&		UNIV_OB;
-extern const std::string&		UNIV_ROMAN;
-extern const std::string&		UNIV_BOLD;
-extern const std::string&		UNIV_BOLD_OB;
-extern const std::string&		UNIV_BLACK;
-extern const std::string&		UNIV_BLACK_OB;
 
 // PHYSICS
 // Front layer: 0, Back layer: highest number

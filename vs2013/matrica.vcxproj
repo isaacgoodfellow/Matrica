@@ -38,10 +38,17 @@
     <Import Project="$(DS_PLATFORM_086)\projects\essentials\PropertySheets\Essentials.props" />
     <Import Project="$(DS_PLATFORM_086)\projects\video\gstreamer-1.0\PropertySheets\Video_GStreamer-1.0.props" />
     <Import Project="$(DS_PLATFORM_086)\projects\pdf\mupdf\PropertySheets\Pdf_MuPdf.props" />
+    <Import Project="$(DS_PLATFORM_086)\projects\viewers\PropertySheets\Viewers.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(DS_PLATFORM_086)\vs2013\PropertySheets\Platform_d.props" />
+    <Import Project="$(DS_PLATFORM_086)\projects\physics\box2d\PropertySheets\Physics_Box2d_d.props" />
+    <Import Project="$(DS_PLATFORM_086)\projects\web\awesomium\PropertySheets\Web_Awesomium_d.props" />
+    <Import Project="$(DS_PLATFORM_086)\projects\essentials\PropertySheets\Essentials_d.props" />
+    <Import Project="$(DS_PLATFORM_086)\projects\video\gstreamer-1.0\PropertySheets\Video_GStreamer-1.0_d.props" />
+    <Import Project="$(DS_PLATFORM_086)\projects\pdf\mupdf\PropertySheets\Pdf_MuPdf_d.props" />
+    <Import Project="$(DS_PLATFORM_086)\projects\viewers\PropertySheets\Viewers_d.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -49,7 +56,7 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <CustomBuildAfterTargets Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -58,7 +65,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(CINDER_086)\blocks\OSC</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -81,6 +88,7 @@
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>
@@ -94,6 +102,12 @@
       <Message>
       </Message>
     </PreLinkEvent>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message />
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -118,7 +132,7 @@
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <GenerateMapFile>true</GenerateMapFile>
+      <GenerateMapFile>false</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>
@@ -128,7 +142,14 @@
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message />
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\app\app_defs.cpp" />
@@ -136,6 +157,7 @@
     <ClCompile Include="..\src\app\matrica_app.cpp" />
     <ClCompile Include="..\src\events\instrument_events.cpp" />
     <ClCompile Include="..\src\events\time_events.cpp" />
+    <ClCompile Include="..\src\model\color_scheme.cpp" />
     <ClCompile Include="..\src\model\MatricaModel.cpp" />
     <ClCompile Include="..\src\query\query_handler.cpp" />
     <ClCompile Include="..\src\ui\background\background_view.cpp" />
@@ -151,11 +173,12 @@
     <ClCompile Include="..\src\visuals\triggerable\triggerable_visual.cpp" />
     <ClCompile Include="..\src\visuals\triggerable\trig_box_slide.cpp" />
     <ClCompile Include="..\src\visuals\triggerable\trig_pop.cpp" />
+    <ClCompile Include="..\src\visuals\triggerable\trig_smoke_pop.cpp" />
     <ClCompile Include="..\src\visuals\triggerable\trig_spinning_rect.cpp" />
     <ClCompile Include="..\src\visuals\visual_controller.cpp" />
+    <ClCompile Include="..\src\visuals\visual_test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\Resources.h" />
     <ClInclude Include="..\src\app\app_defs.h" />
     <ClInclude Include="..\src\app\globals.h" />
     <ClInclude Include="..\src\app\matrica_app.h" />
@@ -163,6 +186,7 @@
     <ClInclude Include="..\src\events\instrument_events.h" />
     <ClInclude Include="..\src\events\time_events.h" />
     <ClInclude Include="..\src\model\all_data.h" />
+    <ClInclude Include="..\src\model\color_scheme.h" />
     <ClInclude Include="..\src\model\MatricaModel.h" />
     <ClInclude Include="..\src\query\query_handler.h" />
     <ClInclude Include="..\src\ui\background\background_view.h" />
@@ -177,13 +201,14 @@
     <ClInclude Include="..\src\visuals\primitive_pool.h" />
     <ClInclude Include="..\src\visuals\triggerable\trig_box_slide.h" />
     <ClInclude Include="..\src\visuals\triggerable\trig_pop.h" />
+    <ClInclude Include="..\src\visuals\triggerable\trig_smoke_pop.h" />
     <ClInclude Include="..\src\visuals\triggerable\trig_spinning_rect.h" />
     <ClInclude Include="..\src\visuals\triggerable_visual.h" />
     <ClInclude Include="..\src\visuals\visual_controller.h" />
+    <ClInclude Include="..\src\visuals\visual_test.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="%DS_PLATFORM_086%\vs2013\FrameworkResources.rc" />
-    <ResourceCompile Include="Resources.rc" />
+    <ResourceCompile Include="$(DS_PLATFORM_086)\vs2013\FrameworkResources.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

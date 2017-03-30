@@ -9,6 +9,9 @@
 
 #include "OscSender.h"
 
+#include <cinder/audio/Source.h>
+#include <cinder/audio/Voice.h>
+
 namespace matrica {
 
 	class Globals;
@@ -31,6 +34,8 @@ namespace matrica {
 		void onTick();
 
 		friend class MatricaPanel;
+
+		std::vector<ci::audio::VoiceRef> mVoice;
 
 		typedef ds::ui::Sprite		inherited;
 		Globals&					mGlobals;

@@ -10,15 +10,20 @@ public:
 	IdleStartedEvent(){};
 };
 
-class SawMessage : public ds::RegisteredEvent < SawMessage > {
-public:
-	SawMessage(){ };
-};
-
 class IdleEndedEvent : public ds::RegisteredEvent < IdleEndedEvent > {
 public:
 	IdleEndedEvent(){};
 
+};
+
+class StoryDataUpdatedEvent : public ds::RegisteredEvent<StoryDataUpdatedEvent>{
+public:
+	StoryDataUpdatedEvent(){};
+}; 
+
+class RequestAppExitEvent : public ds::RegisteredEvent<RequestAppExitEvent>{
+public:
+	RequestAppExitEvent(){};
 };
 
 } // !namespace matrica

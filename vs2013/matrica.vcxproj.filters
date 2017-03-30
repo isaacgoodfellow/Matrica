@@ -13,17 +13,14 @@
     <ClCompile Include="..\src\app\matrica_app.cpp">
       <Filter>src\app</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\ui\matrica_panel.cpp">
-      <Filter>src\ui</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\ui\matrica_button.cpp">
       <Filter>src\ui</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ui\matrica_controller.cpp">
       <Filter>src\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\util\time_seconds.cpp">
-      <Filter>src\util</Filter>
+    <ClCompile Include="..\src\ui\matrica_panel.cpp">
+      <Filter>src\ui</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ui\matrica_touch_grabber.cpp">
       <Filter>src\ui</Filter>
@@ -31,41 +28,53 @@
     <ClCompile Include="..\src\ui\background\background_view.cpp">
       <Filter>src\ui\background</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\visuals\visual_controller.cpp">
-      <Filter>src\visuals</Filter>
+    <ClCompile Include="..\src\ui\background\transition.cpp">
+      <Filter>src\ui\background</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\model\color_scheme.cpp">
+      <Filter>src\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\model\MatricaModel.cpp">
+      <Filter>src\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\events\instrument_events.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\events\time_events.cpp">
+      <Filter>src\events</Filter>
     </ClCompile>
     <ClCompile Include="..\src\visuals\primitive_pool.cpp">
       <Filter>src\visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\visuals\visual_controller.cpp">
+      <Filter>src\visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\visuals\visual_test.cpp">
+      <Filter>src\visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\visuals\triggerable\trig_box_slide.cpp">
+      <Filter>src\visuals\triggerable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\visuals\triggerable\trig_pop.cpp">
+      <Filter>src\visuals\triggerable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\visuals\triggerable\trig_smoke_pop.cpp">
+      <Filter>src\visuals\triggerable</Filter>
     </ClCompile>
     <ClCompile Include="..\src\visuals\triggerable\trig_spinning_rect.cpp">
       <Filter>src\visuals\triggerable</Filter>
     </ClCompile>
     <ClCompile Include="..\src\visuals\triggerable\triggerable_visual.cpp">
-      <Filter>src\visuals</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\visuals\triggerable\trig_pop.cpp">
-      <Filter>src\visuals\triggerable</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\visuals\triggerable\trig_box_slide.cpp">
       <Filter>src\visuals\triggerable</Filter>
     </ClCompile>
     <ClCompile Include="..\src\util\metronome.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\events\time_events.cpp">
-      <Filter>src\events</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\events\instrument_events.cpp">
-      <Filter>src\events</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\util\osc_sender.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\model\MatricaModel.cpp">
-      <Filter>src\model</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ui\background\transition.cpp">
-      <Filter>src\ui\background</Filter>
+    <ClCompile Include="..\src\util\time_seconds.cpp">
+      <Filter>src\util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -81,17 +90,11 @@
     <ClInclude Include="..\src\query\query_handler.h">
       <Filter>src\query</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Resources.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\model\all_data.h">
       <Filter>src\model</Filter>
     </ClInclude>
     <ClInclude Include="..\src\app\matrica_app.h">
       <Filter>src\app</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ui\matrica_panel.h">
-      <Filter>src\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\src\ui\matrica_button.h">
       <Filter>src\ui</Filter>
@@ -99,8 +102,8 @@
     <ClInclude Include="..\src\ui\matrica_controller.h">
       <Filter>src\ui</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\util\time_seconds.h">
-      <Filter>src\util</Filter>
+    <ClInclude Include="..\src\ui\matrica_panel.h">
+      <Filter>src\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\src\ui\matrica_touch_grabber.h">
       <Filter>src\ui</Filter>
@@ -108,48 +111,57 @@
     <ClInclude Include="..\src\ui\background\background_view.h">
       <Filter>src\ui\background</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\visuals\visual_controller.h">
+    <ClInclude Include="..\src\ui\background\transition.h">
+      <Filter>src\ui\background</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\model\color_scheme.h">
+      <Filter>src\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\model\MatricaModel.h">
+      <Filter>src\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\events\instrument_events.h">
+      <Filter>src\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\events\time_events.h">
+      <Filter>src\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\visuals\primitive_pool.h">
       <Filter>src\visuals</Filter>
     </ClInclude>
     <ClInclude Include="..\src\visuals\triggerable_visual.h">
       <Filter>src\visuals</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\visuals\primitive_pool.h">
+    <ClInclude Include="..\src\visuals\visual_controller.h">
       <Filter>src\visuals</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\visuals\triggerable\trig_spinning_rect.h">
+    <ClInclude Include="..\src\visuals\visual_test.h">
+      <Filter>src\visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\visuals\triggerable\trig_box_slide.h">
       <Filter>src\visuals\triggerable</Filter>
     </ClInclude>
     <ClInclude Include="..\src\visuals\triggerable\trig_pop.h">
       <Filter>src\visuals\triggerable</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\visuals\triggerable\trig_box_slide.h">
+    <ClInclude Include="..\src\visuals\triggerable\trig_smoke_pop.h">
+      <Filter>src\visuals\triggerable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\visuals\triggerable\trig_spinning_rect.h">
       <Filter>src\visuals\triggerable</Filter>
     </ClInclude>
     <ClInclude Include="..\src\util\metronome.h">
       <Filter>src\util</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\events\time_events.h">
-      <Filter>src\events</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\events\instrument_events.h">
-      <Filter>src\events</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\util\osc_sender.h">
       <Filter>src\util</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\model\MatricaModel.h">
-      <Filter>src\model</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ui\background\transition.h">
-      <Filter>src\ui\background</Filter>
+    <ClInclude Include="..\src\util\time_seconds.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="%DS_PLATFORM_086%\vs2013\FrameworkResources.rc">
-      <Filter>Resources</Filter>
-    </ResourceCompile>
-    <ResourceCompile Include="Resources.rc">
+    <ResourceCompile Include="$(DS_PLATFORM_086)\vs2013\FrameworkResources.rc">
       <Filter>Resources</Filter>
     </ResourceCompile>
   </ItemGroup>
@@ -159,6 +171,12 @@
     </Filter>
     <Filter Include="src\model">
       <UniqueIdentifier>{319fa3ee-b4b6-4c09-82f9-ae7e64131109}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\model\generated">
+      <UniqueIdentifier>{1508715c-b79f-4ac7-a607-eac85980f6a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\query">
+      <UniqueIdentifier>{7406c89a-2752-4cbf-b0fc-2db2c8ec7223}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\ui">
       <UniqueIdentifier>{9b9f5de1-cbd5-4cb7-a580-46be59c2cf82}</UniqueIdentifier>
@@ -172,20 +190,17 @@
     <Filter Include="Resources">
       <UniqueIdentifier>{3eca459a-2fc2-4471-8dd4-6c188d47d4f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\util">
-      <UniqueIdentifier>{99256369-f3d2-4618-a95d-714415143bd0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\query">
-      <UniqueIdentifier>{7406c89a-2752-4cbf-b0fc-2db2c8ec7223}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\ui\background">
-      <UniqueIdentifier>{fbbb4d22-529e-446a-9a25-59408b3326c5}</UniqueIdentifier>
+      <UniqueIdentifier>{b94fdbed-2dd0-4f11-a191-874e90744bee}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\visuals">
-      <UniqueIdentifier>{3fcc1a67-78fb-4acf-82db-9cf8e9277fcf}</UniqueIdentifier>
+      <UniqueIdentifier>{4f567a98-4513-4fe3-aa4c-81bf2215f364}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\visuals\triggerable">
-      <UniqueIdentifier>{558dc880-9e13-4c6b-87e7-cee4c3f74afe}</UniqueIdentifier>
+      <UniqueIdentifier>{ec292d99-da14-4a6e-a73a-b61d36b09190}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{87121a6d-dfe9-43b5-abb4-7ac48615a9a0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

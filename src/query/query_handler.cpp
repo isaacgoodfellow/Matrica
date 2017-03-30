@@ -15,12 +15,20 @@ namespace matrica {
  */
 QueryHandler::QueryHandler(ds::ui::SpriteEngine& se, AllData &ad)
 		: mEventClient(se.getNotifier(), [this](const ds::Event* e){if (e) onAppEvent(*e); })
+		, mAllData(ad)
+		, mNodeWatcher(se)
 {
 
+	mNodeWatcher.setDelayedMessageNodeCallback([this](const ds::NodeWatcher::Message& m){
+		runInitialQueries(false);
+	});
+}
 
+void QueryHandler::runInitialQueries(const bool synchronous){
 }
 
 void QueryHandler::onAppEvent(const ds::Event& _e) {
+	// Optionally handle app events to re - query if needed
 }
 
 

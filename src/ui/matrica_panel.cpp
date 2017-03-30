@@ -33,12 +33,12 @@ namespace matrica {
 
 		setColor(model.getMainColor());
 
-		ci::Vec2f pos = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getSize("matrica:panel:position");
+		ci::Vec2f pos = mGlobals.mEngine.getSettings(SETTINGS_APP).getSize("matrica:panel:position");
 		
-		ci::Vec2f button_size = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getSize("matrica:panel:button:size");
-		float button_gutter = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getFloat("matrica:panel:button:gutter");
-		float cornerRad = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getFloat("matrica:panel:corner:radius");
-		float button_pad = mGlobals.mEngine.getSettings(SETTINGS_LAYOUT).getFloat("matrica:panel:button:pad");
+		ci::Vec2f button_size = mGlobals.mEngine.getSettings(SETTINGS_APP).getSize("matrica:panel:button:size");
+		float button_gutter = mGlobals.mEngine.getSettings(SETTINGS_APP).getFloat("matrica:panel:button:gutter");
+		float cornerRad = mGlobals.mEngine.getSettings(SETTINGS_APP).getFloat("matrica:panel:corner:radius");
+		float button_pad = mGlobals.mEngine.getSettings(SETTINGS_APP).getFloat("matrica:panel:button:pad");
 
 		x_res = model.getXRes();
 		y_res = model.getYRes();

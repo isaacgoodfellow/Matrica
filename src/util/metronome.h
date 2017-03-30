@@ -5,6 +5,8 @@
 #include "util/time_seconds.h"
 #include <ds/app/event_client.h>
 #include <ds/ui/sprite/image.h>
+#include "events/app_events.h"
+
 
 #include "OscSender.h"
 

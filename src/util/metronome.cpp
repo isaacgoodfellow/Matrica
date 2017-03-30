@@ -1,6 +1,7 @@
 #include "metronome.h"
 #include "app/globals.h"
 #include "events/time_events.h"
+#include <ds/app/event_notifier.h>
 
 
 namespace matrica{

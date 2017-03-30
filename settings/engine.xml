@@ -25,11 +25,22 @@
 	<!-- WINDOW SETTINGS --->
 	<!---------------------->
 	<!-- how big the world size is, in pixels -->
-	<size name="world_dimensions" x="4114" y="3096" />
+	<!-- If these settings are blank, the app will default to fullscreen on the main display -->
+	<!-- 
+	<size name="world_dimensions" x="1920" y="1080" />
+	<rect name="src_rect" l="0" t="0" w="1920" h="1080" />
+	<rect name="src_rect" l="0" t="0" w="1920" h="1080" />
+	
+
+	
+	-->
+	
+			<size name="world_dimensions" x="4114" y="3096" />
 	<rect name="src_rect" l="0" r="4114" t="0" b="3096" />
 	<rect name="dst_rect" l="0" r="960" t="0" b="723" />
 
 	<!--rect name="dst_rect" l="0" r="1920" t="0" b="1445" /-->
+	
 	<!-- title of the window -->
 	<text name="screen:title" value="Matrica" />	
 	<!-- screen mode. full=fullscreen, borderless=no OS chrome, window=normal. default=window -->
@@ -77,6 +88,20 @@
 	<color name="touch_color" r="255" g="255" b="255" />
 	<!-- draw circles around touch points -->
 	<text name="touch_overlay:debug" value="true" />
+	
+	<!-- average out touch points over time for smoother input, but slightly less accurate. default=true -->
+	<text name="touch_smoothing" value="true" />
+	<!-- how many frames to use when smoothing. Higher numbers are smoother. Lower than 3 is effectively off. default=5 -->
+	<int  name="touch_smooth_frames" value="8" />
+	
+	<!-- Touch trails are special debug drawing that leaves a trail behind the touches.
+			use: true turns this on (overrides the stroked cirlce debug drawing (touch_overlay:debug must be true for this to be on)
+			length: how many touch points to keep in the tail
+			increment: how much bigger to make each touch point. Effective max size = (length-1) * increment.
+			Defaults: use=false, length=5, increment=5. Effective size of 20 pixel radius circle. -->
+	<text  name="touch_overlay:trails:use" value="false" />
+	<int   name="touch_overlay:trails:length" value="5" />
+	<float name="touch_overlay:trails:increment" value="5.0" />
 	
 	<!-- Set the current touch mode. Options:
 		"Tuio" -- Receive events over TUIO.

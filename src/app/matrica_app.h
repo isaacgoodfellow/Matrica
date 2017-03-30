@@ -3,10 +3,13 @@
 
 #include <cinder/app/AppBasic.h>
 #include <ds/app/app.h>
+#include <ds/app/event_client.h>
+#include <ds/touch/touch_debug.h>
+
 #include "app/globals.h"
-#include "util/osc_sender.h"
-#include "util/metronome.h"
 #include "query/query_handler.h"
+
+#include "util/metronome.h"
 
 
 namespace matrica {
@@ -16,11 +19,19 @@ class Matrica : public ds::App {
 public:
 	Matrica();
 
+	virtual void		mouseDown(ci::app::MouseEvent e);
+	virtual void		mouseDrag(ci::app::MouseEvent e);
+	virtual void		mouseUp(ci::app::MouseEvent e);
 	virtual void		keyDown(ci::app::KeyEvent event);
 	void				setupServer();
 	void				update();
+
+	virtual void		fileDrop(ci::app::FileDropEvent event);
+
 private:
-	typedef ds::App		inherited;
+
+	void				forceStartIdleMode();
+	void				onAppEvent(const ds::Event&);
 
 	// Data
 	AllData				mAllData;
@@ -29,14 +40,14 @@ private:
 	Globals				mGlobals;
 	QueryHandler		mQueryHandler;
 
-	//Utilities
-	OSCSender			mOscSender;
-	Metronome			mMetronome;
-
 	//Idle state of the app to detect state change
 	bool				mIdling;
 
-	void				moveCamera(const ci::Vec3f& deltaMove);
+	// Handle mouse events and simulate touch events
+	ds::TouchDebug		mTouchDebug;
+	Metronome			mMetronome;
+	// App events can be handled here
+	ds::EventClient		mEventClient;
 };
 
 } // !namespace matrica
