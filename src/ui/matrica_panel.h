@@ -20,6 +20,7 @@ namespace matrica {
 	public:
 
 		MatricaPanel(Globals&, MatricaModel& model);
+		void						animateOn(float scale = 1.0f);
 
 	private:
 
@@ -32,7 +33,6 @@ namespace matrica {
 
 		void						onAppEvent(const ds::Event&);
 
-		void						animateOn();
 
 		typedef ds::ui::Sprite		inherited;
 		Globals&					mGlobals;

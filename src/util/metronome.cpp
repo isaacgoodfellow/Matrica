@@ -10,11 +10,13 @@ namespace matrica{
 		: mGlobals(g){
 		mLastFire = 0.0f;
 		mTimeBetween = 0.2f;
+		mTime = 0;
 	}
 
 	void Metronome::update(){
 		if ((mTimer.elapsed() - mLastFire) > mTimeBetween){
-			mGlobals.mEngine.getNotifier().notify(MetroTickEvent());
+			mTime = (mTime + 1) % 64;
+			mGlobals.mEngine.getNotifier().notify(MetroTickEvent(mTime));
 			mLastFire = (float)mTimer.elapsed();
 		}
 

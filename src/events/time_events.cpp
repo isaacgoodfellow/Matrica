@@ -11,8 +11,9 @@ namespace matrica {
 		return METRO_TICK.mWhat;
 	}
 
-	MetroTickEvent::MetroTickEvent()
+	MetroTickEvent::MetroTickEvent(int tick)
 		: ds::Event(METRO_TICK.mWhat)
+		, mTick(tick)
 	{
 	}
 

@@ -30,6 +30,10 @@ public:
 
 private:
 
+	void				createBeat(ci::Vec3f pos);
+	void				createJuno(ci::Vec3f pos);
+	void				createChime(ci::Vec3f pos);
+
 	void				forceStartIdleMode();
 	void				onAppEvent(const ds::Event&);
 

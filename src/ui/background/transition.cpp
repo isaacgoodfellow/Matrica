@@ -22,7 +22,7 @@ namespace matrica {
 
 		setSize(mGlobals.mEngine.getWorldWidth(), mGlobals.mEngine.getWorldHeight());
 		show();
-		enable(true);
+		enable(false);
 		
 		setTransparent(false);
 		setBlendMode(ds::ui::BlendMode::MULTIPLY);

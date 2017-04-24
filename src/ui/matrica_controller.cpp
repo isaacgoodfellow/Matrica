@@ -17,22 +17,23 @@
 
 namespace matrica{
 
-	MatricaController::MatricaController( Globals& g,  const MatricaPanel* mc )
-	: inherited(g.mEngine)
-	, mGlobals(g)
-	, mMatrica(mc)
-	, mEventClient(g.mEngine.getNotifier(), [this](const ds::Event *m){ if (m) this->onAppEvent(*m); }){
-
-		mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("kick_ish.wav"))));
-		mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("dink.wav"))));
-		mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("bttn2.wav"))));
-		mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("pwr_dwn.wav"))));
-
+	MatricaController::MatricaController( Globals& g,  const MatricaPanel* mc, int divisor )
+		: inherited(g.mEngine)
+		, mGlobals(g)
+		, mMatrica(mc)
+		, mDivisor(divisor)
+		, mEventClient(g.mEngine.getNotifier(), [this](const ds::Event *m){ if (m) this->onAppEvent(*m); })
+	{
 	}
 
 	//advance the step iterator and fire active steps
-	void MatricaController::onTick(){
-		auto xrow = mMatrica->mButtons[it_pos];
+	void MatricaController::onTick(int tick){
+
+		//A tick is a 64th note
+		int newPos = tick / mDivisor;
+		if (mItPos )
+
+		auto xrow = mMatrica->mButtons[mItPos];
 		(*xrow.begin())->showStep();
 		for (auto it = xrow.begin(); it != xrow.end(); ++it){
 			if ((*it)->mState){
@@ -50,13 +51,13 @@ namespace matrica{
 			}
 		}
 
-		it_pos++;
-		it_pos %= mMatrica->x_res;
 	}
 
 	void MatricaController::onAppEvent(const ds::Event& in_e) {
+
 		if (in_e.mWhat == MetroTickEvent::WHAT()){
-			onTick();
+			const MetroTickEvent& _e = dynamic_cast<const MetroTickEvent&>(in_e);
+			onTick(_e.mTick);
 		}
 	}
 

@@ -14,7 +14,8 @@ namespace matrica {
 	class MetroTickEvent : public ds::Event {
 	public:
 		static int			WHAT();
-		MetroTickEvent();
+		MetroTickEvent(int time);
+		int mTick;
 	};
 
 } // namespace matrica

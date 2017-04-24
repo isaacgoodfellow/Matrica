@@ -24,18 +24,19 @@ namespace matrica {
 	class MatricaController : public ds::ui::Sprite {
 	public:
 		
-		MatricaController(Globals& , const MatricaPanel* mc);
+		MatricaController(Globals& , const MatricaPanel* mc, int divisor);
+
+		std::vector<ci::audio::VoiceRef> mVoice;
 
 	private:
 
-		int it_pos = 0;
+		int mItPos = 0;
+		int mDivisor;
 
 		void onAppEvent(const ds::Event&);
-		void onTick();
+		void onTick(int tick);
 
 		friend class MatricaPanel;
-
-		std::vector<ci::audio::VoiceRef> mVoice;
 
 		typedef ds::ui::Sprite		inherited;
 		Globals&					mGlobals;

@@ -34,6 +34,8 @@ namespace matrica {
 		float mLastFire;
 		float mTimeBetween;
 
+		int mTime;
+
 	};
 
 }

@@ -86,10 +86,10 @@ namespace matrica {
 
 	}
 
-	void MatricaPanel::animateOn(){
+	void MatricaPanel::animateOn(float scale){
 		float dur = 1.0f;
 		tweenOpacity(1.0f, dur, 0.0f, cinder::EaseInOutCirc());
-		tweenScale(ci::Vec3f(1.0f, 1.0f, 1.0f), dur, 0.0f, cinder::EaseInOutCirc());
+		tweenScale(ci::Vec3f(scale,scale,scale), dur, 0.0f, cinder::EaseInOutCirc());
 	}
 
 

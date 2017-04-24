@@ -12,5 +12,22 @@
 		<float name="media_viewer:title:size" value="16" />
 		<float name="media_viewer:title:leading" value="0.75" />
 		<color name="media_viewer:title:color" code="white" />
+		
+		<text  name="ffm:title:name" value="noto-bold" />
+		<float name="ffm:title:size" value="10" />
+		<float name="ffm:title:leading" value="0.75" />
+		<color name="ffm:title:color" code="white" />
+	
+		<!-- Five Finger Touch Stuff -->
+		<text  name="ffm:subtitle:name" value="noto-bold" />
+		<float name="ffm:subtitle:size" value="10" />
+		<float name="ffm:subtitle:leading" value="0.75" />
+		<color name="ffm:subtitle:color" code="redhat_red" />
+		
+		<!-- Five Finger Touch Stuff -->
+		<text  name="ffm:sel_subtitle:name" value="noto-bold" />
+		<float name="ffm:sel_subtitle:size" value="10" />
+		<float name="ffm:sel_subtitle:leading" value="0.75" />
+		<color name="ffm:sel_subtitle:color" code="redhat_red" />
 	
 </settings>

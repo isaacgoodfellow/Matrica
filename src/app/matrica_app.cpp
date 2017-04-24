@@ -15,6 +15,9 @@
 #include "ui/matrica_controller.h"
 #include "visuals/visual_controller.h"
 
+#include <ds/ui/menu/touch_menu.h>
+#include <cinder/Rand.h>
+
 
 #include "app/app_defs.h"
 #include "app/globals.h"
@@ -126,16 +129,37 @@ void Matrica::setupServer(){
 	bg->show();
 	bg->setPosition(0.0f, 0.0f);
 
-	// add sprites
-	MatricaModel m = MatricaModel(1, 16, 8, "triangle/", TriggerableVisual::kVisualPop, mGlobals.mColor_Green, mGlobals.mColor_Pink, mGlobals.mColor_Green);
-	MatricaPanel *p = new MatricaPanel(mGlobals, m);
-	rootSprite.addChildPtr(new MatricaController(mGlobals, p));
-	rootSprite.addChildPtr(p);
-	p->setPosition(mGlobals.mEngine.getWorldWidth() / 2.0f, mGlobals.mEngine.getWorldHeight() / 2.0f);
-
 	VisualController *vc = new VisualController(mGlobals);
 	rootSprite.addChildPtr(vc);
 	vc->sendToFront();
+
+
+	//Add the 5 Finger Touch
+	ds::ui::TouchMenu *menu = new ds::ui::TouchMenu(mEngine);
+	rootSprite.addChildPtr(menu);
+
+	ds::ui::TouchMenu::TouchMenuConfig tmc;
+	tmc.mItemTitleTextConfig = "ffm:title";
+	tmc.mItemSubtitleTextConfig = "ffm:subtitle";
+	tmc.mClusterRadius = 250.0f;
+	tmc.mBackgroundOpacity = 0.7f;
+	tmc.mItemIconHeight = 110.0f;
+
+	menu->setMenuConfig(tmc);
+
+	//Touch Menu seems to display things in the reverse order that they're added
+	std::vector<ds::ui::TouchMenu::MenuItemModel> menuItemModels;
+	menuItemModels.push_back(ds::ui::TouchMenu::MenuItemModel(L"Beat", "%APP%/data/images/clear_icon_hack.png", "%APP%/data/images/clear_icon_hack.png", [this](ci::Vec3f pos){createBeat(pos); }));
+	menuItemModels.push_back(ds::ui::TouchMenu::MenuItemModel(L"Juno", "%APP%/data/images/clear_icon_hack.png", "%APP%/data/images/clear_icon_hack.png", [this](ci::Vec3f pos){createJuno(pos); }));
+	menuItemModels.push_back(ds::ui::TouchMenu::MenuItemModel(L"Chime", "%APP%/data/images/clear_icon_hack.png", "%APP%/data/images/clear_icon_hack.png", [this](ci::Vec3f pos){createChime(pos); }));
+	menu->setMenuItemModels(menuItemModels);
+
+	mEngine.setTouchInfoPipeCallback([this, menu](const ds::ui::TouchInfo& ti){
+		if (menu){
+			menu->handleTouchInfo(ti);
+		}
+	});
+
 
 	rootSprite.addChildPtr(new TransitionView(mGlobals));
 
@@ -144,7 +168,61 @@ void Matrica::setupServer(){
 	mEngine.getNotifier().notify(IdleEndedEvent());
 
 
+}
 
+void Matrica::createBeat(ci::Vec3f pos){
+
+	ds::ui::Sprite &rootSprite = mEngine.getRootSprite();
+	MatricaModel m = MatricaModel(2, 16, 6, "beat/", TriggerableVisual::kVisualSmokePop, mGlobals.mColor_Yellow, mGlobals.mColor_Pink, mGlobals.mColor_Yellow);
+	MatricaPanel *p = new MatricaPanel(mGlobals, m);
+	MatricaController *c = new MatricaController(mGlobals, p, 2);
+	rootSprite.addChildPtr(c);
+	rootSprite.addChildPtr(p);
+	p->setPosition(pos.x, pos.y);
+	p->setScale(0.25, 0.25);
+	p->animateOn(0.25);
+
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("perc/808.wav"))));
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("perc/flip_da_switch.wav"))));
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("perc/snare.wav"))));
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("perc/snow.wav"))));
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("perc/bttn2.wav"))));
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("perc/hat.wav"))));
+}
+
+void Matrica::createChime(ci::Vec3f pos){
+
+	ds::ui::Sprite &rootSprite = mEngine.getRootSprite();
+	MatricaModel m = MatricaModel(1, 16, 6, "triangle/", TriggerableVisual::kVisualPop, mGlobals.mColor_Green, mGlobals.mColor_Pink, mGlobals.mColor_Green);
+	MatricaPanel *p = new MatricaPanel(mGlobals, m);
+	MatricaController *c = new MatricaController(mGlobals, p,4);
+	rootSprite.addChildPtr(c);
+	rootSprite.addChildPtr(p);
+	p->setPosition(pos.x,pos.y);
+	p->animateOn(0.25);
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("triangle/1c1.wav"))));
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("triangle/2d1.wav"))));
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("triangle/3e1.wav"))));
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("triangle/4f1.wav"))));
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("triangle/5g1.wav"))));
+	c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("triangle/6a1.wav"))));
+}
+
+void Matrica::createJuno(ci::Vec3f pos){
+		ds::ui::Sprite &rootSprite = mEngine.getRootSprite();
+		MatricaModel m = MatricaModel(2, 16, 6, "juno/", TriggerableVisual::kVisualSpinningRect, mGlobals.mColor_Pink, mGlobals.mColor_Pink, mGlobals.mColor_Yellow);
+		MatricaPanel *p = new MatricaPanel(mGlobals, m);
+		MatricaController *c = new MatricaController(mGlobals, p,4);
+		rootSprite.addChildPtr(c);
+		rootSprite.addChildPtr(p);
+		p->setPosition(pos.x, pos.y);
+		p->animateOn(0.25);
+		c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("juno/1c1.wav"))));
+		c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("juno/2d1.wav"))));
+		c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("juno/3e1.wav"))));
+		c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("juno/4f1.wav"))));
+		c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("juno/5g1.wav"))));
+		c->mVoice.push_back(ci::audio::Voice::create(ci::audio::load(ci::app::loadAsset("juno/6a1.wav"))));
 }
 
 void Matrica::update() {
