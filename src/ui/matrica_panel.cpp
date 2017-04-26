@@ -86,6 +86,22 @@ namespace matrica {
 
 	}
 
+	bool MatricaPanel::getState(int x, int y) const{
+		return (x < mModel.getXRes() && y < mModel.getYRes() && mButtons[x][y]->mState);
+	}
+
+	void MatricaPanel::fireLed(int x, int y) const{
+		if (x < mModel.getXRes() && y < mModel.getYRes()){
+			mButtons[x][y]->fireLed();
+		}
+	}
+
+	void MatricaPanel::showStep(int x, int y) const{
+		if (x < mModel.getXRes() && y < mModel.getYRes()){
+			mButtons[x][y]->showStep();
+		}
+	}
+
 	void MatricaPanel::animateOn(float scale){
 		float dur = 1.0f;
 		tweenOpacity(1.0f, dur, 0.0f, cinder::EaseInOutCirc());

@@ -108,7 +108,7 @@ namespace matrica {
 	void MatricaButton::showStep(){
 		float dur = ci::Rand::randFloat(0.3f, 0.4f);
 		mTempoVisual->setOpacity(0.3f);
-		mGlobals.mEngine.getTweenline().apply(*mTempoVisual, ANIM_OPACITY(), 0.0f, dur);
+		mTempoVisual->tweenOpacity(0.0f, dur);
 	}
 
 	void MatricaButton::changeState(bool in){

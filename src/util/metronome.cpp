@@ -9,7 +9,7 @@ namespace matrica{
 	Metronome::Metronome(Globals& g)
 		: mGlobals(g){
 		mLastFire = 0.0f;
-		mTimeBetween = 0.2f;
+		mTimeBetween = 0.1f;
 		mTime = 0;
 	}
 

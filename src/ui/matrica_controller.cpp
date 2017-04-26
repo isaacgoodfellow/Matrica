@@ -17,40 +17,43 @@
 
 namespace matrica{
 
-	MatricaController::MatricaController( Globals& g,  const MatricaPanel* mc, int divisor )
+	MatricaController::MatricaController( Globals& g,  const MatricaPanel* mc, MatricaModel model )
 		: inherited(g.mEngine)
 		, mGlobals(g)
+		, mModel(model)
 		, mMatrica(mc)
-		, mDivisor(divisor)
 		, mEventClient(g.mEngine.getNotifier(), [this](const ds::Event *m){ if (m) this->onAppEvent(*m); })
+		, mDivisor(model.getDivisor())
 	{
+		mXRes = model.getXRes();
+		mYRes = model.getYRes();
 	}
 
 	//advance the step iterator and fire active steps
 	void MatricaController::onTick(int tick){
 
+		if (!mMatrica) return;
+
 		//A tick is a 64th note
 		int newPos = tick / mDivisor;
-		if (mItPos )
+		newPos %= mXRes;
+		if (mItPos == newPos) return;
+		mItPos = newPos;
 
-		auto xrow = mMatrica->mButtons[mItPos];
-		(*xrow.begin())->showStep();
-		for (auto it = xrow.begin(); it != xrow.end(); ++it){
-			if ((*it)->mState){
-				(*it)->fireLed();
-				int note_no = mMatrica->y_res - (*it)->y;
+		for (int y = 0; y < mYRes; ++y){
+			mMatrica->showStep(mItPos,y);
+			if (mMatrica->getState(newPos, y)){
+				int note_no = mYRes - y;
 				note_no -= 1;
-				mGlobals.mEngine.getNotifier().notify( NoteFiredEvent( mMatrica->mModel , note_no));
-
+				mGlobals.mEngine.getNotifier().notify(NoteFiredEvent(mModel, note_no));
+				mMatrica->fireLed(mItPos, y);
 				if (note_no < mVoice.size()){
 					mVoice[note_no]->stop();
 					mVoice[note_no]->setPan(0.5f);
 					mVoice[note_no]->start();
 				}
-
 			}
 		}
-
 	}
 
 	void MatricaController::onAppEvent(const ds::Event& in_e) {
@@ -60,7 +63,5 @@ namespace matrica{
 			onTick(_e.mTick);
 		}
 	}
-
-
 
 }

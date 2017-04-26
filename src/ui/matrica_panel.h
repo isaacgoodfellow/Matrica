@@ -21,12 +21,12 @@ namespace matrica {
 
 		MatricaPanel(Globals&, MatricaModel& model);
 		void						animateOn(float scale = 1.0f);
-
+		bool						getState(int x, int y) const;
+		void						showStep(int x, int y) const;
+		void						fireLed(int x, int y) const;
 	private:
 
 		int x_res,y_res;
-
-		friend class MatricaController;
 		friend class MatricaTouchGrabber;
 
 		MatricaTouchGrabber*		mTouchGrabber;

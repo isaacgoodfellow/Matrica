@@ -16,10 +16,12 @@ public:
 
 };
 
-class StoryDataUpdatedEvent : public ds::RegisteredEvent<StoryDataUpdatedEvent>{
+class MatricaClosedEvent : public ds::RegisteredEvent < MatricaClosedEvent > {
 public:
-	StoryDataUpdatedEvent(){};
-}; 
+	MatricaClosedEvent(){};
+
+};
+
 
 class RequestAppExitEvent : public ds::RegisteredEvent<RequestAppExitEvent>{
 public:

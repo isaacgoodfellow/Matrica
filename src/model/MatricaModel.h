@@ -16,7 +16,7 @@ namespace matrica {
 	{
 	public:
 		MatricaModel();
-		MatricaModel(const int id, const int xRes, const int yRes, const std::string& Channel, const TriggerableVisual::VisualType& visType, const ci::Color& main, const ci::Color& accent, const ci::Color& high);
+		MatricaModel(const int id, const int xRes, const int yRes, const int divisor, const std::string& Channel, const TriggerableVisual::VisualType& visType, const ci::Color& main, const ci::Color& accent, const ci::Color& high);
 
 		void					clear();
 		bool					empty() const;
@@ -25,6 +25,7 @@ namespace matrica {
 		const int&				getId() const;
 		const int&				getXRes() const;
 		const int&				getYRes() const;
+		const int&				getDivisor() const;
 		const std::string&		getChannel() const;
 		const ci::Color&		getMainColor() const;
 		const ci::Color&		getAccentColor() const;
@@ -45,6 +46,7 @@ namespace matrica {
 		int					mXRes;
 		int					mYRes;
 		int					mId;
+		int					mDivisor;
 
 	};
 

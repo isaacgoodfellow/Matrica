@@ -10,7 +10,7 @@ namespace matrica {
 	MatricaModel::MatricaModel() {
 	}
 
-	MatricaModel::MatricaModel( const int id, const int xRes, const int yRes, const std::string& Channel, const TriggerableVisual::VisualType& visType, const ci::Color& main, const ci::Color& accent, const ci::Color& high)
+	MatricaModel::MatricaModel( const int id, const int xRes, const int yRes, const int divisor, const std::string& Channel, const TriggerableVisual::VisualType& visType, const ci::Color& main, const ci::Color& accent, const ci::Color& high)
 		: mChannel(Channel)
 		, mMainColor(main)
 		, mAccentColor(accent)
@@ -19,6 +19,7 @@ namespace matrica {
 		, mYRes(yRes)
 		, mVisualType(visType)
 		, mId(id)
+		, mDivisor(divisor)
 	{
 	}
 
@@ -47,6 +48,10 @@ namespace matrica {
 
 	const int& MatricaModel::getYRes() const {
 		return mYRes;
+	}
+
+	const int& MatricaModel::getDivisor() const {
+		return mDivisor;
 	}
 
 	const std::string& MatricaModel::getChannel() const {

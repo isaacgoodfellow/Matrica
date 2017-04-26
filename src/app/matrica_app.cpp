@@ -173,9 +173,9 @@ void Matrica::setupServer(){
 void Matrica::createBeat(ci::Vec3f pos){
 
 	ds::ui::Sprite &rootSprite = mEngine.getRootSprite();
-	MatricaModel m = MatricaModel(2, 16, 6, "beat/", TriggerableVisual::kVisualSmokePop, mGlobals.mColor_Yellow, mGlobals.mColor_Pink, mGlobals.mColor_Yellow);
+	MatricaModel m = MatricaModel(2, 16, 6, 2, "beat/", TriggerableVisual::kVisualSmokePop, mGlobals.mColor_Yellow, mGlobals.mColor_Pink, mGlobals.mColor_Yellow);
 	MatricaPanel *p = new MatricaPanel(mGlobals, m);
-	MatricaController *c = new MatricaController(mGlobals, p, 2);
+	MatricaController *c = new MatricaController(mGlobals, p, m);
 	rootSprite.addChildPtr(c);
 	rootSprite.addChildPtr(p);
 	p->setPosition(pos.x, pos.y);
@@ -193,9 +193,9 @@ void Matrica::createBeat(ci::Vec3f pos){
 void Matrica::createChime(ci::Vec3f pos){
 
 	ds::ui::Sprite &rootSprite = mEngine.getRootSprite();
-	MatricaModel m = MatricaModel(1, 16, 6, "triangle/", TriggerableVisual::kVisualPop, mGlobals.mColor_Green, mGlobals.mColor_Pink, mGlobals.mColor_Green);
+	MatricaModel m = MatricaModel(1, 16, 6,4, "triangle/", TriggerableVisual::kVisualPop, mGlobals.mColor_Green, mGlobals.mColor_Pink, mGlobals.mColor_Green);
 	MatricaPanel *p = new MatricaPanel(mGlobals, m);
-	MatricaController *c = new MatricaController(mGlobals, p,4);
+	MatricaController *c = new MatricaController(mGlobals, p,m);
 	rootSprite.addChildPtr(c);
 	rootSprite.addChildPtr(p);
 	p->setPosition(pos.x,pos.y);
@@ -210,9 +210,9 @@ void Matrica::createChime(ci::Vec3f pos){
 
 void Matrica::createJuno(ci::Vec3f pos){
 		ds::ui::Sprite &rootSprite = mEngine.getRootSprite();
-		MatricaModel m = MatricaModel(2, 16, 6, "juno/", TriggerableVisual::kVisualSpinningRect, mGlobals.mColor_Pink, mGlobals.mColor_Pink, mGlobals.mColor_Yellow);
+		MatricaModel m = MatricaModel(2, 16, 6,2, "juno/", TriggerableVisual::kVisualSpinningRect, mGlobals.mColor_Pink, mGlobals.mColor_Pink, mGlobals.mColor_Yellow);
 		MatricaPanel *p = new MatricaPanel(mGlobals, m);
-		MatricaController *c = new MatricaController(mGlobals, p,4);
+		MatricaController *c = new MatricaController(mGlobals, p,m);
 		rootSprite.addChildPtr(c);
 		rootSprite.addChildPtr(p);
 		p->setPosition(pos.x, pos.y);
